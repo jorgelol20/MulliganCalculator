@@ -33,7 +33,7 @@ const ShowDeck = ({ deck }) => {
         if (badCards !== undefined) {
             badCardsString = `[${badCards}]`;
         }
-        setNewError(`Ha habido un error al cargar algunas de las cartas en las siguientes líneas: \n ${badCardsString}`);
+        setNewError(`Ha habido un error al cargar algunas de las cartas: \n ${badCardsString}`);
         resetBadCards();
     }
     /**

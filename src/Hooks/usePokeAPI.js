@@ -130,10 +130,10 @@ const usePokeAPI = (deck) => {
                     if (cardAPI !== undefined) {
                         return [cardAPI, formatedCard[1]];
                     }
-                    addNewBadCard(" " + (index + 2));
+                    addNewBadCard(" " + (card.name) + " " + (card.expansion));
                     return null;
                 }
-                addNewBadCard(" " + (index + 2));
+                addNewBadCard(" " + (card.name));
                 return null;
             });
             const finalDeckAPI = await Promise.all(cardListAPI);
