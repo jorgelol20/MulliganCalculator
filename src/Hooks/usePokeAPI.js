@@ -152,10 +152,16 @@ const usePokeAPI = (deck) => {
                     if (card.name) {
                         return card;
                     }
-
+                    if(card[0].id === "sv04-175"){
+                        card[0].category = "Pokémon";
+                        card[0].stage = "Básico";
+                    }
                     switch (card[0].category) {
                         case "Pokémon":
                             if (card[0].abilities) {
+                                if(card[0].id === "me01-028"){
+                                    card[0].stage = "Básico";
+                                }
                                 return {
                                     name: card[0].name,
                                     expansion: card[0].set.name,
