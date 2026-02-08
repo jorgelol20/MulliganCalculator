@@ -5,7 +5,7 @@ import CardProvider from './context/CardProvider.jsx';
 import './App.css'
 import ErrorProvider from './context/ErrorProvider.jsx';
 import Footer from './components/structure/Footer.jsx';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
 
