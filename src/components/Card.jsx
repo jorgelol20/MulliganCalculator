@@ -9,6 +9,7 @@ import Dark_Energy from './../assets/img/Dark_Energy.png';
 import Fairy_Energy from './../assets/img/Fairy_Energy.png';
 import Light_Energy from './../assets/img/Light_Energy.png';
 import Metal_Energy from './../assets/img/Metal_Energy.png';
+import Placeholder from './../assets/img/placeHolder.png';
 
 const selectImage = (card) => {
     switch (card) {
@@ -45,7 +46,15 @@ const Card = ({ cardInfo }) => {
                     </div>
                     <div className="body">
                         <picture id="image">
-                            <img src={cardInfo.image} alt={cardInfo.name} />
+                            <img
+                                src={cardInfo.image}
+                                onError={(e) => {
+                                    e.preventDefault();
+                                    e.currentTarget.onerror = null;
+                                    e.currentTarget.src = Placeholder;
+                                }}
+                                alt={cardInfo.name}
+                            />
                         </picture>
                     </div>
                     <div className="cardInfo">
@@ -60,7 +69,7 @@ const Card = ({ cardInfo }) => {
             <div className="card" key={cardInfo.name}>
                 <div className="head">
                     <label className="title">{cardInfo.name}</label>
-                        <label htmlFor="card" className="quantity">{cardInfo.quantity}</label>
+                    <label htmlFor="card" className="quantity">{cardInfo.quantity}</label>
                 </div>
 
                 <div className="body">
