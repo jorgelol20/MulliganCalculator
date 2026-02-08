@@ -1,6 +1,6 @@
 import React from 'react';
-import Heracross from '@/assets/img/Heracross.webp';
-import HeracrossSound from '@/assets/sounds/Heracross.ogg';
+import Heracross from '../assets/img/Heracross.webp';
+import HeracrossSound from '../assets/sounds/Heracross.ogg';
 import './Loading.css';
 
 const Loading = () => {
