@@ -23,9 +23,9 @@
     "showFirstHands": "Show first 100 hands",
     "showHands": "Show hands",
     "createdBy": "Created by",
-    "createdWith": "with",
     "basic": "Basic",
     "pokemon": "Pokemon",
     "cardAppears": "Card Appearance %",
-    "mulliganPercent": "Mulligan %"
+    "mulliganPercent": "Mulligan %",
+    "copyright": "Mulligan Calculator is a non-profit, fan-made tool. This site is not affiliated with, endorsed, or supported by Nintendo, Game Freak, or The Pokémon Company. All card images and information are provided through the use of the TCGDex API."
 }

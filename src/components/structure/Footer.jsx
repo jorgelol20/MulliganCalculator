@@ -7,7 +7,9 @@ const Footer = () => {
     return (
         <Fragment>
             <footer>
-                <p>{t('createdBy')} <a href="https://github.com/jorgelol20">Jorge Colomer Albertos</a> {t('createdWith')} <a href="https://tcgdex.dev/es"><img src={LogoTCGDexAPI} alt="Logo TCGDex"/></a></p>
+                <p>{t('createdBy')} <a href="https://github.com/jorgelol20">Jorge Colomer Albertos</a></p>
+                <p>{t('copyright')}</p>
+                <a href="https://tcgdex.dev/es"><img src={LogoTCGDexAPI} alt="Logo TCGDex"/></a>
             </footer>
         </Fragment>
     )
