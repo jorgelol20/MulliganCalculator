@@ -3,7 +3,9 @@ import './Advice.css';
 const Advice = ({text,type}) => {
     return(
         <Fragment>
-            <p className={type}><strong>¡AVISO!</strong>{text}</p>
+            <div className="advice">
+                <p className={type}><strong>¡AVISO! </strong>{text}</p>
+            </div>
         </Fragment>
     );   
 }

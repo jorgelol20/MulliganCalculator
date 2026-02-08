@@ -2,12 +2,12 @@ import React, { Fragment, useRef, useState, useEffect, useContext } from 'react'
 import './Form.css';
 import { cardsContext } from '../context/CardProvider.jsx';
 import { errorContext } from '../context/ErrorProvider.jsx';
+import Advice from './structure/Advice.jsx';
 
 
 const Form = ({ setNewDeck }) => {
     const listRef = useRef(null);
     const { setNewError, resetBadCards } = useContext(errorContext);
-
     /**
      * 
      */
@@ -63,11 +63,11 @@ const Form = ({ setNewDeck }) => {
     /**
      * 
      */
-
     return (
         <Fragment>
             <form className='deckForm' id='deckForm'>
                 <div>
+                    <Advice text={"Algunas expansiones como HIF no están disponibles aún. Las actuales funcionan sin ningún problema. Disculpar las molestias"} type={"importante"}/>
                     <textarea
                         autoFocus
                         spellCheck="false"
