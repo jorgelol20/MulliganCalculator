@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import SpainFlag from './assets/img/Flag-Spain.png';
 import USAFlag from './assets/img/Flag-USA.png';
 
+
 function App() {
   const { t, i18n } = useTranslation();
 
