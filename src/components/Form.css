@@ -3,11 +3,12 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    min-height: 40vh;
 
     #deckList {
         min-width: 40vh;
         width: 100%;
-        min-height: 600px;
+        min-height: 50vh;
         background-color: rgb(250, 251, 255);
         color: rgb(11, 15, 24);
         font-weight: bold;
@@ -39,7 +40,6 @@
     background-color: rgb(11, 15, 24);
     color: rgb(226, 235, 255);
     font-family: 'Arial Narrow Bold', sans-serif;
-    min-height: 800px;
 }
 
 .deckForm input {
