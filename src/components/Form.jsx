@@ -17,7 +17,7 @@ const Form = ({ setNewDeck }) => {
         const formatedCardList = listRef.current.value.split('\n')
             .filter((lane) => {
                 const trimedLane = lane.trim();
-                return !(trimedLane.includes("Pokémon: ") || trimedLane.includes("Pokemon: ") || trimedLane.includes("Trainer: ") || trimedLane.includes("Entrenador: ") || trimedLane.includes("Energy: ") || trimedLane.includes("Energía: ") || trimedLane === "" || trimedLane.includes("Cartas totales: ") || trimedLane.includes("Total Cards: "))
+                return !(trimedLane.includes("Pokémon: ") || trimedLane.includes("Pokemon: ") || trimedLane.includes("Trainer: ") || trimedLane.includes("Entrenador: ") || trimedLane.includes("Energy: ") || trimedLane.includes("Energía: ") || trimedLane === "" || trimedLane.includes("Cartas totales: ") || trimedLane.includes("Total Cards: ") || trimedLane.includes("Total Cards: "))
             })
             .map((card) => {
                 card = card.trim();
