@@ -45,8 +45,6 @@ const Results = () => {
             let isMulligan = true;
 
             for (let card of newHand) {
-                console.log(card.pokemonType);
-                console.log(t('basic'))
                 if (card.cardType === t('pokemon') && card.pokemonType === t('basic')) {
                     isMulligan = false;
                 }
@@ -77,7 +75,6 @@ const Results = () => {
         for (let card of tempDeck) {
             card.appears = (card.appears * 100 / numberOfHands).toFixed(1);
         }
-        console.log(tempDeck);
         let tempNumberOfMulligans = 0;
         for (let hand of tempHands) {
             if (hand.isMulligan) {
