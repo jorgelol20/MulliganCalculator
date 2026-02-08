@@ -17,6 +17,7 @@ const CustomizedContent = (props) => {
           fill: `hsl(${(index * (360 / root.children.length))}, 60%, 50%)`,
           stroke: "#0a0027",
           strokeWidth: 1,
+          textWrap: "wrap",
         }}
       />
       {width > 45 && height > 35 && (
@@ -28,6 +29,7 @@ const CustomizedContent = (props) => {
             fill="#fff"
             fontSize={12}
             fontWeight="bold"
+            textWrap="wrap"
           >
             {name}
           </text>
@@ -37,6 +39,7 @@ const CustomizedContent = (props) => {
             textAnchor="middle"
             fill="#fff"
             fontSize={11} 
+            textWrap="wrap"
           >
             {displayPercent}
           </text>
