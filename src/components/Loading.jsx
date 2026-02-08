@@ -1,11 +1,10 @@
 import React from 'react';
 import Heracross from '../assets/img/Heracross.webp';
-import HeracrossSound from '../assets/sounds/Heracross.ogg';
 import './Loading.css';
 
 const Loading = () => {
     const playCries = () => {
-        const audio = new Audio(HeracrossSound);
+        const audio = new Audio("/sounds/Heracross.ogg");
         // Optional: stop previous sound before playing again
         audio.currentTime = 0;
         audio.play().catch(error => console.error("Audio playback failed:", error));
