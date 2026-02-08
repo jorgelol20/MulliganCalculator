@@ -23,7 +23,6 @@ const usePokeAPI = (deck) => {
      * @returns 
      */
     const getCard = async (card) => {
-        console.log(card)
         const responseCard = await tcgdex.card.get(`${card}`);
         if (!responseCard) {
             return undefined;
@@ -126,7 +125,6 @@ const usePokeAPI = (deck) => {
                         }
                     }
                     let cardAPI = await getCard(formatedCard[0]);
-                    console.log(cardAPI)
                     if (cardAPI !== undefined) {
                         return [cardAPI, formatedCard[1]];
                     }
