@@ -17,33 +17,37 @@ const CustomizedContent = (props) => {
           fill: `hsl(${(index * (360 / root.children.length))}, 60%, 50%)`,
           stroke: "#0a0027",
           strokeWidth: 1,
-          textWrap: "wrap",
         }}
       />
       {width > 45 && height > 35 && (
-        <>
-          <text
-            x={x + width / 2}
-            y={y + height / 2 - 5}
-            textAnchor="middle"
-            fill="#fff"
-            fontSize={12}
-            fontWeight="bold"
-            textWrap="wrap"
-          >
-            {name}
-          </text>
-          <text
-            x={x + width / 2}
-            y={y + height / 2 + 12}
-            textAnchor="middle"
-            fill="#fff"
-            fontSize={11} 
-            textWrap="wrap"
-          >
-            {displayPercent}
-          </text>
-        </>
+        <foreignObject x={x} y={y} width={width} height={height}>
+          <div style={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
+            textAlign: 'center',
+            padding: '2px',
+            boxSizing: 'border-box',
+            overflow: 'hidden',
+            pointerEvents: 'none'
+          }}>
+            <span style={{
+              fontSize: '12px',
+              fontWeight: 'bold',
+              lineHeight: '1.1',
+              wordBreak: 'break-word'
+            }}>
+              {name}
+            </span>
+            <span style={{ fontSize: '10px', marginTop: '2px' }}>
+              {displayPercent}
+            </span>
+          </div>
+        </foreignObject>
       )}
     </g>
   );
@@ -59,7 +63,7 @@ const GraphCards = ({ cards }) => {
 
   return (
     <div style={{ width: '100%', height: '500px', minWidth: '0' }}>
-        <h1 style={{textAlign:"center"}}>% de Aparición de las cartas</h1>
+      <h1 style={{ textAlign: "center" }}>% de Aparición de las cartas</h1>
       <ResponsiveContainer width="100%" height="100%">
         <Treemap
           data={data}
@@ -68,7 +72,7 @@ const GraphCards = ({ cards }) => {
           stroke="#ffffff"
           content={<CustomizedContent />}
         >
-          <Tooltip 
+          <Tooltip
             formatter={(value, name) => [`${value}% de aparición`, name]}
           />
         </Treemap>
