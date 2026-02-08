@@ -2,11 +2,12 @@ import React, { useCallback, useContext, useEffect, useState } from 'react';
 import TCGdex from '@tcgdex/sdk';
 import expansionDictionary from './../assets/db/expansionSet.json';
 import { errorContext } from '../context/ErrorProvider.jsx';
+import { useTranslation } from 'react-i18next';
 
 const usePokeAPI = (deck) => {
-
+    const {t, i18n} = useTranslation();
     //Utils
-    const tcgdex = new TCGdex('es');
+    const tcgdex = new TCGdex(i18n.language);
     const expansions = expansionDictionary;
 
     //States
@@ -137,7 +138,7 @@ const usePokeAPI = (deck) => {
             const finalDeckAPI = await Promise.all(cardListAPI);
             formatApiDeck(finalDeckAPI);
         } else {
-            setNewError("Error al procesar las cartas, comprueba que se haya copiado correctamente");
+            setNewError(t('loadingErrorAPI'));
         }
 
     }
@@ -156,13 +157,14 @@ const usePokeAPI = (deck) => {
                     }
                     if(card[0].id === "sv04-175"){
                         card[0].category = "Pokémon";
-                        card[0].stage = "Básico";
+                        card[0].stage = t('basic');
                     }
                     switch (card[0].category) {
                         case "Pokémon":
+                        case "Pokemon":
                             if (card[0].abilities) {
                                 if(card[0].id === "me01-028"){
-                                    card[0].stage = "Básico";
+                                    card[0].stage = t('basic');
                                 }
                                 return {
                                     name: card[0].name,

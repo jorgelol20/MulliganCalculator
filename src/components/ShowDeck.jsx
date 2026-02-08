@@ -7,6 +7,7 @@ import Card from './Card.jsx';
 import Loading from './Loading.jsx';
 import Advice from './structure/Advice.jsx';
 import { errorContext } from '../context/ErrorProvider.jsx';
+import { useTranslation } from 'react-i18next';
 
 const ShowDeck = ({ deck }) => {
     const { deckAPI, loading } = usePokeAPI(deck);
@@ -15,6 +16,7 @@ const ShowDeck = ({ deck }) => {
     const [numberOfHands, setNumberOfHands] = useState(10);
     const { setNewError, badCards, resetBadCards } = useContext(errorContext);
     const numberOfHandsRef = useRef(null);
+    const {t, i18n} = useTranslation();
 
     const redirectRoute = (e) => {
         if (cardQuantity !== 60) {
@@ -31,9 +33,9 @@ const ShowDeck = ({ deck }) => {
     const errorMessage = () => {
         let badCardsString = "";
         if (badCards !== undefined) {
-            badCardsString = `[${badCards}]`;
+            badCardsString = `${badCards}`;
         }
-        setNewError(`Ha habido un error al cargar algunas de las cartas: \n ${badCardsString}`);
+        setNewError(`${t('loadingError')}:  ${badCardsString}`);
         resetBadCards();
     }
     /**
@@ -78,9 +80,9 @@ const ShowDeck = ({ deck }) => {
         } else {
             return (
                 <div className='advices'>
-                    <Advice text={" Solo se mostrarán las 100 primeras manos"} type={"aviso"} />
+                    <Advice text={t('adviceText')} type={"aviso"} />
                     {
-                        numberOfHands > 10000 && <Advice text={" Puede que tarde en cargar o que tu navegador bloquee la página."} type={"importante"} />
+                        numberOfHands > 10000 && <Advice text={t('importantText')} type={"importante"} />
                     }
                 </div>
             );
@@ -91,15 +93,15 @@ const ShowDeck = ({ deck }) => {
     return (
         <Fragment>
             <section>
-                <h1 id='title'>Listado Cartas (Total: <label style={cardQuantity != 60 ? { color: 'red' } : { color: 'green' }}> {cardQuantity} </label>)</h1>
+                <h1 id='title'> {t('cardListTitle')} (Total: <label style={cardQuantity != 60 ? { color: 'red' } : { color: 'green' }}> {cardQuantity} </label>)</h1>
                 {
                     /**
                      * 
                      */
                     load ?
                         cardQuantity > 7 ?
-                            <NavLink key={window.crypto ? crypto.randomUUID?.() : Math.random().toString(36).substring(2, 15)} id='calc' to="/results" onClick={redirectRoute} >Calcular Mulligans (Pruebas: {numberOfHands})</NavLink>
-                            : <div id='calc'>Deben haber mínimo 7 cartas</div>
+                            <NavLink key={window.crypto ? crypto.randomUUID?.() : Math.random().toString(36).substring(2, 15)} id='calc' to="/results" onClick={redirectRoute} >{t('calcButton')} {numberOfHands})</NavLink>
+                            : <div id='calc'>{t('minCardText')}</div>
                         : <></>
                 }
                 {
@@ -110,7 +112,7 @@ const ShowDeck = ({ deck }) => {
                      * 
                      */
                     load && cardQuantity > 7 && <div>
-                        <h1 htmlFor="numberOfHands">Número de pruebas:  <select ref={numberOfHandsRef} className='numberOfHands' name="numberOfHands" id="numberOfHands" onChange={() => {
+                        <h1 htmlFor="numberOfHands">{t('numberOfTestText')}  <select ref={numberOfHandsRef} className='numberOfHands' name="numberOfHands" id="numberOfHands" onChange={() => {
                             setContextNumberOfHands(numberOfHandsRef.current.value);
                             setNumberOfHands(numberOfHandsRef.current.value);
                         }}>
@@ -143,7 +145,7 @@ const ShowDeck = ({ deck }) => {
                                 }
 
                             })
-                                : "Seleccione el deck"
+                                : <h1>{t('selectDeckText')}</h1>
                         }
 
                     </div>

@@ -1,8 +1,10 @@
 import React, { Fragment } from "react";
 import { PieChart, Pie, ResponsiveContainer, Tooltip, Legend, Cell } from 'recharts';
 import './Graph.css';
+import { useTranslation } from "react-i18next";
 
 const GraphMulligans = ({ data }) => {
+    const {t, i18n} = useTranslation();
     const COLORS = data.datasets[0].backgroundColor;
     const chartData = data.labels.map((label, index) => ({
         name: label,
@@ -11,6 +13,7 @@ const GraphMulligans = ({ data }) => {
 
     // Función mágica para calcular la posición interna
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value }) => {
+        
         const RADIAN = Math.PI / 180;
         // El factor 0.5 determina qué tan cerca del centro está el número
         const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
@@ -34,7 +37,7 @@ const GraphMulligans = ({ data }) => {
     return (
         <Fragment>
             <div className="graph-container">
-                <h1 style={{textAlign:"center"}}>% de Mulligans</h1>
+                <h1 style={{textAlign:"center"}}>{t('mulliganPercent')}</h1>
                 <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                         <Pie

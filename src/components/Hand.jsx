@@ -6,7 +6,7 @@ const Hand = ({ hand }) => {
         <Fragment>
             <div className='hand'>
                 <div id='header'>
-                    <h1><label style={hand.isMulligan ? { color: 'red' } : { color: 'green' }}>{hand.isMulligan ? "Es mulligan" : "No es mulligan"}</label></h1>
+                    <h1><label style={hand.isMulligan ? { color: 'red' } : { color: 'green' }}>{hand.isMulligan ? "Mulligan" : "No mulligan"}</label></h1>
                 </div>
                 <div className='cards'>
                     {

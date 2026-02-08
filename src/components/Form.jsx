@@ -3,9 +3,11 @@ import './Form.css';
 import { cardsContext } from '../context/CardProvider.jsx';
 import { errorContext } from '../context/ErrorProvider.jsx';
 import Advice from './structure/Advice.jsx';
+import { useTranslation } from 'react-i18next';
 
 
 const Form = ({ setNewDeck }) => {
+    const { t, i18n } = useTranslation();
     const listRef = useRef(null);
     const { setNewError, resetBadCards } = useContext(errorContext);
     /**
@@ -56,7 +58,7 @@ const Form = ({ setNewDeck }) => {
                 return returnCard;
             });
         if (formatedCardList.includes(null) || formatedCardList.includes(undefined) || formatedCardList.length == 0) {
-            setNewError("Error al procesar las cartas, comprueba que se haya copiado correctamente");
+            setNewError(t('errorFormat'));
         }
         setNewDeck(formatedCardList);
     }
@@ -67,7 +69,9 @@ const Form = ({ setNewDeck }) => {
         <Fragment>
             <form className='deckForm' id='deckForm'>
                 <div>
-                    <Advice text={"Algunas expansiones como HIF no están disponibles aún. Las actuales funcionan sin ningún problema. Disculpar las molestias"} type={"importante"}/>
+                    {
+                        i18n.language == "es" &&<Advice text={"Algunas expansiones como HIF no están disponibles aún. Las actuales funcionan sin ningún problema. Disculpar las molestias"} type={"importante"} />
+                    }
                     <textarea
                         autoFocus
                         spellCheck="false"
@@ -76,14 +80,14 @@ const Form = ({ setNewDeck }) => {
                         ref={listRef}
                         name="deckList"
                         id="deckList"
-                        placeholder='Se aceptan mazos importados desde TCG Live y el creador de mazos de Limitless'
+                        placeholder={t('textArea')}
                     />
                 </div>
                 <br />
                 <div>
                     <input
                         type="submit"
-                        value="Comprobar deck"
+                        value={t('checkButton')}
                         onClick={(event) => {
                             event.preventDefault();
                             try {

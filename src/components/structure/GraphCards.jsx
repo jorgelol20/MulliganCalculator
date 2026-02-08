@@ -1,9 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Treemap, ResponsiveContainer, Tooltip } from 'recharts';
 
 const CustomizedContent = (props) => {
   const { x, y, width, height, index, name, size, root } = props;
-
   const displayPercent = `${size}%`;
 
   return (
@@ -54,6 +54,7 @@ const CustomizedContent = (props) => {
 };
 
 const GraphCards = ({ cards }) => {
+  const {t, i18n} = useTranslation();
   const data = cards.map((c) => ({
     name: c.name,
     size: Number(c.appears) || 0,
@@ -63,7 +64,7 @@ const GraphCards = ({ cards }) => {
 
   return (
     <div style={{ width: '100%', height: '500px', minWidth: '0' }}>
-      <h1 style={{ textAlign: "center" }}>% de Aparición de las cartas</h1>
+      <h1 style={{ textAlign: "center" }}>{t('cardAppears')}</h1>
       <ResponsiveContainer width="100%" height="100%">
         <Treemap
           data={data}
@@ -73,7 +74,7 @@ const GraphCards = ({ cards }) => {
           content={<CustomizedContent />}
         >
           <Tooltip
-            formatter={(value, name) => [`${value}% de aparición`, name]}
+            formatter={(value, name) => [`${value}%`, name]}
           />
         </Treemap>
       </ResponsiveContainer>

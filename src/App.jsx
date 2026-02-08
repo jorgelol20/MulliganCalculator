@@ -1,28 +1,43 @@
-import { useState, Fragment } from 'react'
+import { useState, Fragment, Suspense, useRef } from 'react'
 import { BrowserRouter } from 'react-router-dom';
 import Content from './components/pages/Content.jsx';
 import CardProvider from './context/CardProvider.jsx';
 import './App.css'
 import ErrorProvider from './context/ErrorProvider.jsx';
 import Footer from './components/structure/Footer.jsx';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/react"
+import './i18n.js';
+import { useTranslation } from 'react-i18next';
+import SpainFlag from './assets/img/Flag-Spain.png';
+import USAFlag from './assets/img/Flag-USA.png';
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
 
   return (
     <>
-      <SpeedInsights/>
-      <div className='app'>
-        <h1 id='mainTitle'>Calculadora de Mulligan</h1>
-        <BrowserRouter>
-          <ErrorProvider>
-            <CardProvider>
-              <Content />
-              <Footer/>
-            </CardProvider>
-          </ErrorProvider>
-        </BrowserRouter>
-      </div>
+      <Suspense fallback="Loading...">
+        <SpeedInsights />
+        <div className='app'>
+          <header>
+            <h1 id='mainTitle'>{t('mainTitle')}</h1>
+            <button className='languajeButton' onClick={() => changeLanguage("es")}><img src={SpainFlag} alt="Spain Flag" /></button>
+            <button className='languajeButton' onClick={() => changeLanguage("en")}><img src={USAFlag} alt="USA Flag" /></button>
+          </header>
+          <BrowserRouter>
+            <ErrorProvider>
+              <CardProvider>
+                <Content />
+                <Footer />
+              </CardProvider>
+            </ErrorProvider>
+          </BrowserRouter>
+        </div>
+      </Suspense>
     </>
   )
 }

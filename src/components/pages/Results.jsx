@@ -7,6 +7,7 @@ import HandContainer from '../HandContainer.jsx';
 import GraphMulligans from '../structure/GraphMulligans.jsx';
 import GraphCards from '../structure/GraphCards.jsx';
 import './Results.css';
+import { useTranslation } from 'react-i18next';
 
 
 const Results = () => {
@@ -16,13 +17,14 @@ const Results = () => {
     const [results, setResults] = useState(undefined);
     const [numberOfMulligans, setNumberOfMulligans] = useState(0);
     const [display, setDisplay] = useState(false);
+    const {t, i18n} = useTranslation();
 
 
     if (contextDeck === undefined || contextDeck.length == 0) {
         return (
             <Fragment>
-                <h1>No se ha especificado ningún mazo</h1>
-                <NavLink id='calc' to='/'>Calcular Mulligans</NavLink>
+                <h1>{t("errorResultsTitle")}</h1>
+                <NavLink id='calc' to='/'>{t('backTitle')}</NavLink>
             </Fragment>
         )
     }
@@ -43,7 +45,9 @@ const Results = () => {
             let isMulligan = true;
 
             for (let card of newHand) {
-                if (card.cardType === "Pokémon" && card.pokemonType === "Básico") {
+                console.log(card.pokemonType);
+                console.log(t('basic'))
+                if (card.cardType === t('pokemon') && card.pokemonType === t('basic')) {
                     isMulligan = false;
                 }
             }
@@ -98,8 +102,8 @@ const Results = () => {
     }, [contextDeck])
     return (
         <Fragment>
-            <NavLink key={Math.random().toString(36).substring(2, 15)} id='calc' to='/'>Volver al inicio</NavLink>
-            <h1>{loading ? "Cargando resultados..." : "Resultados: "}</h1>
+            <NavLink key={Math.random().toString(36).substring(2, 15)} id='calc' to='/'>{t('backTitle')}</NavLink>
+            <h1>{loading ? t('loadingResults') : t('resultsTitle')}</h1>
             <br />
             <div className='results'>
                 <h1>{
@@ -109,7 +113,7 @@ const Results = () => {
                     !loading && <button onClick={() => {
                         setDisplay(!display)
                     }}>
-                        {display ? "Ocultar resultados" : "Mostrar resultados"}
+                        {display ? t('hideResults') : t('showResults')}
                     </button>
                 }
                 {

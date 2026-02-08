@@ -2,10 +2,12 @@ import React, { Fragment, useState, useEffect } from "react";
 import Hand from "./Hand";
 import './HandContainer.css';
 import Loading from "./Loading";
+import { useTranslation } from "react-i18next";
 
 const HandContainer = ({ hands }) => {
     const [display, setDisplay] = useState(false);
     const [loadedHands, setLoadedHands] = useState(undefined);
+    const {t, i18n} = useTranslation();
     const loadHands = (hands) => {
         setTimeout(() => {
             let returnHands = [];
@@ -25,7 +27,7 @@ const HandContainer = ({ hands }) => {
                 <button onClick={() => {
                     setDisplay(!display)
                 }}>
-                    {display ? "Ocultar manos" : hands.length > 10 ? "Mostrar las primeras 100 manos" : "Mostrar manos"}
+                    {display ? t('hideHands') : hands.length > 10 ? t('showFirstHands') : t('showHands')}
                 </button>
                 {
                     display && loadedHands === undefined && <Loading />
