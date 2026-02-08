@@ -9,17 +9,6 @@ const Form = ({ setNewDeck }) => {
     const listRef = useRef(null);
     const { setNewError, resetBadCards } = useContext(errorContext);
     const [invalidCards, setInvalidCarts] = useState(false);
-
-    const invalidExpansions = ["HIF",];
-
-    const checkInvalidCards = () => {
-        let invalidCard = false; 
-        console.log(listRef.current.value)
-        for(const expansion of invalidExpansions){
-            invalidCard = listRef.current.value.includes(expansion);
-        }
-        setInvalidCarts(invalidCard);
-    }
     /**
      * 
      */
@@ -84,9 +73,7 @@ const Form = ({ setNewDeck }) => {
         <Fragment>
             <form className='deckForm' id='deckForm'>
                 <div>
-                    {
-                        invalidCards && <Advice text={`Las siguientes expansiones no están disponibles: ${invalidExpansions}`} type={"importante"}/>
-                    }
+                    <Advice text={"Algunas expansiones como HIF no están disponibles aún. Las actuales funcionan sin ningún problema. Disculpar las molestias"} type={"importante"}/>
                     <textarea
                         autoFocus
                         spellCheck="false"
