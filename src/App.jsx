@@ -6,6 +6,7 @@ import './App.css'
 import ErrorProvider from './context/ErrorProvider.jsx';
 import Footer from './components/structure/Footer.jsx';
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
 import './i18n.js';
 import { useTranslation } from 'react-i18next';
 import SpainFlag from './assets/img/Flag-Spain.png';
@@ -23,6 +24,7 @@ function App() {
     <>
       <Suspense fallback="Loading...">
         <SpeedInsights />
+        <Analytics />
         <div className='app'>
           <header>
             <h1 id='mainTitle'>{t('mainTitle')}</h1>
