@@ -23,6 +23,7 @@ const usePokeAPI = (deck) => {
      * @returns 
      */
     const getCard = async (card) => {
+        console.log(card)
         const responseCard = await tcgdex.card.get(`${card}`);
         if (!responseCard) {
             return null;
@@ -44,6 +45,9 @@ const usePokeAPI = (deck) => {
             }
             if (expansion !== undefined) {
                 let cardNumber = card.number;
+                if(expansion.includes("sm115")){
+                    return undefined;
+                }
                 if (expansion.includes("me") || expansion.includes("sv")) {
                     if (cardNumber < 10) {
                         cardNumber = "00" + cardNumber;
@@ -152,7 +156,7 @@ const usePokeAPI = (deck) => {
                     if (card.name) {
                         return card;
                     }
-
+                    console.log(card)
                     switch (card[0].category) {
                         case "Pokémon":
                             if (card[0].abilities) {

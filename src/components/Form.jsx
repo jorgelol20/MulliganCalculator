@@ -2,12 +2,24 @@ import React, { Fragment, useRef, useState, useEffect, useContext } from 'react'
 import './Form.css';
 import { cardsContext } from '../context/CardProvider.jsx';
 import { errorContext } from '../context/ErrorProvider.jsx';
+import Advice from './structure/Advice.jsx';
 
 
 const Form = ({ setNewDeck }) => {
     const listRef = useRef(null);
     const { setNewError, resetBadCards } = useContext(errorContext);
+    const [invalidCards, setInvalidCarts] = useState(false);
 
+    const invalidExpansions = ["HIF",];
+
+    const checkInvalidCards = () => {
+        let invalidCard = false; 
+        console.log(listRef.current.value)
+        for(const expansion of invalidExpansions){
+            invalidCard = listRef.current.value.includes(expansion);
+        }
+        setInvalidCarts(invalidCard);
+    }
     /**
      * 
      */
@@ -60,14 +72,21 @@ const Form = ({ setNewDeck }) => {
         }
         setNewDeck(formatedCardList);
     }
+
+    useEffect(()=>{
+        checkInvalidCards();
+    },[listRef.current.value])
+
     /**
      * 
      */
-
     return (
         <Fragment>
             <form className='deckForm' id='deckForm'>
                 <div>
+                    {
+                        invalidCards && <Advice text={`Las siguientes expansiones no están disponibles: ${invalidExpansions}`} type={"importante"}/>
+                    }
                     <textarea
                         autoFocus
                         spellCheck="false"
