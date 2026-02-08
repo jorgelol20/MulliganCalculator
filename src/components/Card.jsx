@@ -74,7 +74,19 @@ const Card = ({ cardInfo }) => {
 
                 <div className="body">
                     {
-                        cardInfo.image ? <img src={cardInfo.image} alt={cardInfo.name} /> : <img src={selectImage(cardInfo.name)} alt={cardInfo.name} />
+                        cardInfo.image ?
+                            <img
+                                src={cardInfo.image}
+                                onError={(e) => {
+                                    e.preventDefault();
+                                    e.currentTarget.onerror = null;
+                                    e.currentTarget.src = Placeholder;
+                                }}
+                                alt={cardInfo.name}
+                            />
+                            : <img
+                                src={selectImage(cardInfo.name)}
+                                alt={cardInfo.name} />
                     }
                 </div>
                 {
