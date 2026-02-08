@@ -1,0 +1,48 @@
+.finalResults {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 500px;
+
+    #graphViwer {
+        padding: 5px;
+        margin-top: -1cqw;
+        border: 1px rgb(226, 235, 255) solid;
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        width: 100%;
+        margin-bottom: 5em;
+        #mulligans {
+            flex: 1;
+            width: 100%;
+            min-width: 0;
+            height: 600px;
+        }
+
+        #cards {
+            flex: 1;
+            width: 100%;
+            min-width: 0;
+            height: 600px;
+        }
+
+    }
+}
+
+@media (max-width: 1200px) {
+    .finalResults {
+        flex-direction: column;
+
+        #graphViwer {
+            margin-bottom: 25px;
+            flex-direction: column;
+            #mulligans{
+                margin-bottom: 3em;
+            }
+            #cards{
+                margin-bottom: 5em;
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+.errorContainer{
+    border: 2px red solid;
+    justify-self: center;
+    align-self:center;
+    width: 100%;
+    padding: 5px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 1%;
+    h1{
+        text-align: center;
+    }
+    p{
+        padding: 5px;
+        display: block;
+        width: 100%;
+        text-wrap: wrap;
+        text-align: center;
+    }
+}
+#loadingBar{
+    width: 0%;
+    height: 5px;
+    background-color: red;
+    animation: 5s loadingBar;
+}
+@keyframes loadingBar {
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .errorContainer{
+        background-color: rgba(0, 15, 51, 0.356);
+    }
+}

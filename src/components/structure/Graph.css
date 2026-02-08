@@ -1,0 +1,20 @@
+.graph-container {
+    height: 20cqw;
+    min-height: 250px;
+    width: '100%';
+
+    .text {
+        font-size: 1em;
+        font-weight: bold;
+        fill: white;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .graph-container {
+        .text {
+            font-size:2em;
+        }
+    }
+}

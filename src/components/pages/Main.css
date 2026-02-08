@@ -1,0 +1,39 @@
+
+@media (min-width: 1200px) {
+    .mainContainer{
+        display: flex;
+        flex-direction: row;
+    }
+    .form{
+        width: 35vh;
+        height: fit-content;
+    }
+    .leftSide{
+        width: 35vh;
+        display: flex;
+        margin-right: 7vh;
+        flex-direction: column;
+        align-items: center;
+    }
+    .error{
+           width: 35vh;
+           justify-self: center;
+           font-weight: bold;
+    }
+}
+@media (max-width: 1199px) {
+    .mainContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    .form{
+        width: 100%;
+        height: fit-content;
+    }
+    .leftSide{
+        width: 100%;
+    }
+}

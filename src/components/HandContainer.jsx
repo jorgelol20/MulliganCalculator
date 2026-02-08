@@ -1,0 +1,50 @@
+import React, { Fragment, useState, useEffect } from "react";
+import Hand from "./Hand";
+import './HandContainer.css';
+import Loading from "./Loading";
+
+const HandContainer = ({ hands }) => {
+    const [display, setDisplay] = useState(false);
+    const [loadedHands, setLoadedHands] = useState(undefined);
+    const loadHands = (hands) => {
+        setTimeout(() => {
+            let returnHands = [];
+            let maxHands = 100;
+            if (hands.length < 100) {
+                returnHands = hands;
+            } else {
+                returnHands = hands.splice(0, maxHands);
+            }
+
+            setLoadedHands(returnHands);
+        }, 1)
+    }
+    return (
+        <Fragment>
+            <div className="container">
+                <button onClick={() => {
+                    setDisplay(!display)
+                }}>
+                    {display ? "Ocultar manos" : hands.length > 10 ? "Mostrar las primeras 100 manos" : "Mostrar manos"}
+                </button>
+                {
+                    display && loadedHands === undefined && <Loading />
+                }
+                {
+                    display && loadedHands === undefined && loadHands(hands)
+                }
+                <div className="cards">
+                    {
+                        display && loadedHands !== undefined && loadedHands.map((hand) => {
+                            return <Hand
+                                key={window.crypto ? crypto.randomUUID?.() : Math.random().toString(36).substring(2, 15)}
+                                hand={hand}
+                            />
+                        })
+                    }
+                </div>
+            </div>
+        </Fragment>
+    )
+}
+export default HandContainer;
