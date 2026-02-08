@@ -8,7 +8,6 @@ import Advice from './structure/Advice.jsx';
 const Form = ({ setNewDeck }) => {
     const listRef = useRef(null);
     const { setNewError, resetBadCards } = useContext(errorContext);
-    const [invalidCards, setInvalidCarts] = useState(false);
     /**
      * 
      */
@@ -61,11 +60,6 @@ const Form = ({ setNewDeck }) => {
         }
         setNewDeck(formatedCardList);
     }
-
-    useEffect(()=>{
-        checkInvalidCards();
-    },[listRef.current.value])
-
     /**
      * 
      */

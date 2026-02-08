@@ -26,7 +26,7 @@ const usePokeAPI = (deck) => {
         console.log(card)
         const responseCard = await tcgdex.card.get(`${card}`);
         if (!responseCard) {
-            return null;
+            return undefined;
         } else {
             return responseCard;
         }
@@ -45,9 +45,6 @@ const usePokeAPI = (deck) => {
             }
             if (expansion !== undefined) {
                 let cardNumber = card.number;
-                if(expansion.includes("sm115")){
-                    return undefined;
-                }
                 if (expansion.includes("me") || expansion.includes("sv")) {
                     if (cardNumber < 10) {
                         cardNumber = "00" + cardNumber;
@@ -109,7 +106,7 @@ const usePokeAPI = (deck) => {
                 }
             }
             return undefined;
-        } catch (error) {}
+        } catch (error) { }
     }
 
     /**
@@ -117,10 +114,8 @@ const usePokeAPI = (deck) => {
      * @param {Array} cardsList 
      */
     const iterateCards = async (cardsList) => {
-        let cont = 0;
         if (cardsList !== null) {
-            const cardListAPI = cardsList.map(async (card) => {
-                cont++;
+            const cardListAPI = cardsList.map(async (card, index) => {
                 const formatedCard = formatCard(card);
                 if (formatedCard !== undefined) {
                     if (formatedCard[0].includes("Energy")) {
@@ -131,14 +126,19 @@ const usePokeAPI = (deck) => {
                         }
                     }
                     let cardAPI = await getCard(formatedCard[0]);
-                    return [cardAPI, formatedCard[1]];
+                    console.log(cardAPI)
+                    if (cardAPI !== undefined) {
+                        return [cardAPI, formatedCard[1]];
+                    }
+                    addNewBadCard(" " + (index + 2));
+                    return null;
                 }
-                addNewBadCard(" "+cont);
+                addNewBadCard(" " + (index + 2));
                 return null;
             });
             const finalDeckAPI = await Promise.all(cardListAPI);
             formatApiDeck(finalDeckAPI);
-        }else{
+        } else {
             setNewError("Error al procesar las cartas, comprueba que se haya copiado correctamente");
         }
 
@@ -152,11 +152,11 @@ const usePokeAPI = (deck) => {
         let formatedDeckAPI = [];
         if (deckToFormat.length !== 0) {
             formatedDeckAPI = deckToFormat.map((card) => {
-                if (card != null || card != undefined) {
+                if (card != null && card != undefined) {
                     if (card.name) {
                         return card;
                     }
-                    console.log(card)
+
                     switch (card[0].category) {
                         case "Pokémon":
                             if (card[0].abilities) {
@@ -198,6 +198,7 @@ const usePokeAPI = (deck) => {
                             }
                     }
                 }
+                return undefined;
             })
         }
         setLoading(false);
