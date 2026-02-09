@@ -3,7 +3,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     padding: 12px;
-    background-color: #0f172a;
+    background-color: var(--color-fondo);
 }
 
 #image {
@@ -12,12 +12,12 @@
 
 .card {
     position: relative;
-    background: #1e293b;
+    background: var(--color-fondo);
     border-radius: 12px;
     padding: 8px;
     display: flex;
     flex-direction: column;
-    border: 5px solid rgb(98, 166, 255);
+    border: 5px solid var(--color-principal);
     margin: 1%;
     width: 10cqw
 }
@@ -47,7 +47,7 @@
 }
 
 .head .quantity {
-    background-color: rgb(98, 166, 255);
+    background-color: var(--color-principal);
     width: 2cqw;
     height: 2cqw;
     font-size: calc(100% + 10px);
@@ -75,7 +75,7 @@
 
 .cardInfo h3 {
     font-size: 0.7rem;
-    color: #94a3b8;
+    color: var(--color-texto-secundario);
     margin: 2px 0;
     font-weight: 400;
     display: block;
@@ -110,8 +110,6 @@
     }
 
     .head .quantity {
-        background-color: rgb(98, 166, 255);
-        font-size: 1em;
         width: 3cqw;
         height: 3cqw;
         top: -3%;
@@ -128,14 +126,11 @@
         width: 20%;
     }
     .head .quantity {
-        background-color: rgb(98, 166, 255);
-        font-size: 1em;
         width: 5cqw;
         height: 5cqw;
         top: -3%;
         right: -5%;
     }
-
     .head .title {
         font-size: 0.5rem;
     }
