@@ -33,6 +33,12 @@
         background-color: rgb(221, 227, 252);
         scale: 1.1;
     }
+
+    .advice{
+        min-width: 40vh;
+        justify-items: center;
+    }
+
 }
 
 

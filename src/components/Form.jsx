@@ -57,7 +57,7 @@ const Form = ({ setNewDeck }) => {
                 }
                 return returnCard;
             });
-            console.log(formatedCardList)
+        console.log(formatedCardList)
         if (formatedCardList.includes(null) || formatedCardList.includes(undefined) || formatedCardList.length == 0) {
             setNewError(t('errorFormat'));
         }
@@ -70,9 +70,11 @@ const Form = ({ setNewDeck }) => {
         <Fragment>
             <form className='deckForm' id='deckForm'>
                 <div>
-                    {
-                        i18n.language == "es" &&<Advice text={"Algunas expansiones como HIF no están disponibles aún. Las actuales funcionan sin ningún problema. Disculpar las molestias"} type={"importante"} />
-                    }
+                    <div className='advice'>
+                        {
+                            i18n.language == "es" && <Advice text={"Algunas expansiones como HIF no están disponibles aún. Las actuales funcionan sin ningún problema. Disculpar las molestias"} type={"importante"} />
+                        }
+                    </div>
                     <textarea
                         autoFocus
                         spellCheck="false"
