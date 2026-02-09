@@ -11,7 +11,7 @@
 
 ## ¿Por qué esta calculadora?
 
-A diferencia de otras herramientas "rudimentarias" donde debes introducir los datos a mano, esta aplicación se centra en la **usabilidad**:
+A diferencia de otras herramientas "rudimentarias" donde debes introducir los datos a mano, esta aplicación se centra en **ser útil y fácil de usar**:
 
 * **Importación Directa:** Copia y pega tu lista de mazo desde **Limitless TCG** o el juego oficial (**Pokémon TCG Live**).
 * **Automatización:** Gracias a la integración con la API de TCGDex, la herramienta identifica automáticamente qué cartas son básicos y cuáles no (salvo casos excepcionales).
