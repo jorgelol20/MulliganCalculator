@@ -1,16 +1,53 @@
-# React + Vite
+# [Mulligan Calculator](https://mulligan-calculator.vercel.app/) (Para Pokémon TCG)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Status](https://img.shields.io/badge/Status-En_Desarrollo-blue?style=for-the-badge)
 
-Currently, two official plugins are available:
+**Mulligan Calculator** es una herramienta diseñada para la comunidad de Pokémon TCG a la que pertenezco desde hace un tiempo. Su objetivo es calcular, según las necesidades del usuario, las probabilidades de que tu mazo tenga un inicio válido, evitando los odiosos mulligans.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> **¿Qué es un Mulligan?** <br> Ocurre cuando al empezar la partida no robas ningún Pokémon básico en tu mano inicial. Esto obliga a barajar de nuevo y permite al rival robar una carta extra, dándole una ventaja desde antes de empezar el primer turno.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ¿Por qué esta calculadora?
 
-## Expanding the ESLint configuration
+A diferencia de otras herramientas "rudimentarias" donde debes introducir los datos a mano, esta aplicación se centra en la **usabilidad**:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Importación Directa:** Copia y pega tu lista de mazo desde **Limitless TCG** o el juego oficial (**Pokémon TCG Live**).
+* **Automatización:** Gracias a la integración con la API de TCGDex, la herramienta identifica automáticamente qué cartas son básicos y cuáles no (salvo casos excepcionales).
+* **Visualización Clara:** Resultados estadísticos mostrados mediante gráficos dinámicos.
+
+## Tecnologías y Librerías
+
+* **[React](https://reactjs.org/):** Base del desarrollo del proyecto.
+* **[TCGDex API](https://tcgdex.dev/):** Fuente de datos actualizada para obtener la información oficial de las cartas y sus respectivas imágenes.
+* **[Recharts](https://recharts.org/):** Para la generación de los gráficos de las estadísticas.
+* **[React Router](https://reactrouter.com/):** Gestión de la navegación interna de la aplicación.
+* **[i18next](https://www.i18next.com/):** Implementación de sistema multi-idioma para llegar a mayor parte de la comunidad.
+
+## Instalación
+
+Si quieres ejecutar el proyecto en local, debes realizar los siguientes pasos:
+
+1. **Clona este repositorio:**
+   ```bash
+   git clone [https://github.com/tu-usuario/mulligan-calculator.git](https://github.com/tu-usuario/mulligan-calculator.git)
+2. **Instalar las librerias**
+    ```bash
+    npm install
+3. **Ejecutar la aplicación**
+    ```bash
+    npm start
+## Objetivos del proyecto
+1. Ayudar a la comunidad a la que pertenezco brindando de una herramienta fácil de usar y que sea capaz de dar bastante información de sus mazos.
+2. Poner a prueba los conocimientos adquiridos estas últimas semanas sobre React
+
+## Próximas mejoras e implementaciones
+* **Rediseño Visual:** Mejora completa del apartado estético.
+* **Cálculo de Premios:** Función extra para visualizar la probabilidad de que cartas irán a premios en caso de que la mano no sea mulligan.
+* **Refactorización:** Limpieza y optimización del código para mejorar la velocidad y facilitar las mejoras a futuro.
+
+## Autor
+**Jorge Colomer Albertos** <br>
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/wdWwwwwwwjorge-colomer-albertos-944346275/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jorgelol20)

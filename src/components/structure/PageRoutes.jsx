@@ -9,6 +9,7 @@ const PageRoutes = () => {
             <Routes>
                 <Route path="/" element={<Main/>}/>
                 <Route path="/results" element={<Results/>}/>
+                <Route path="/*" element={<Main/>}/>
             </Routes>
         </Fragment>
     )
