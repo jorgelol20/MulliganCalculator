@@ -7,6 +7,10 @@
     border-radius: 5px;
     padding-top: 5px;
 }
+#title{
+    text-wrap: nowrap;
+    min-width: 15cqw;
+}
 
 section {
     display: flex;
