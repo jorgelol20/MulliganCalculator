@@ -34,9 +34,11 @@
 }
 
 .head .title {
+    margin-right: 10%;
     font-size: 1.3rem;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
+    padding-left: 5%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -52,7 +54,7 @@
     align-items: center;
     align-content: center;
     position: absolute;
-    top: -5%;
+    top: -3%;
     right: -5%;
     border-radius: 100%;
     text-align: center;
@@ -68,6 +70,7 @@
     margin-top: 8px;
     text-align: left;
     min-height: 40px;
+    font-size: 1em;
 }
 
 .cardInfo h3 {
@@ -93,7 +96,7 @@
         padding: 40px;
     }
     .cardInfo h3 {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .cardInfo {
@@ -117,6 +120,7 @@
     .head .title {
         font-size: 0.5rem;
     }
+    
 }
 
 @media (max-width: 1000px) {
@@ -134,5 +138,8 @@
 
     .head .title {
         font-size: 0.5rem;
+    }
+    .cardInfo h3{
+        font-size: 2cqw;
     }
 }
