@@ -68,6 +68,7 @@
     margin-top: 8px;
     text-align: left;
     min-height: 40px;
+    font-size: 1em;
 }
 
 .cardInfo h3 {
@@ -93,7 +94,7 @@
         padding: 40px;
     }
     .cardInfo h3 {
-        font-size: 1rem;
+        font-size: 2rem;
     }
 
     .cardInfo {
@@ -117,6 +118,7 @@
     .head .title {
         font-size: 0.5rem;
     }
+    
 }
 
 @media (max-width: 1000px) {
@@ -134,5 +136,8 @@
 
     .head .title {
         font-size: 0.5rem;
+    }
+    .cardInfo h3{
+        font-size: 2cqw;
     }
 }

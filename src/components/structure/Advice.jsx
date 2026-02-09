@@ -6,7 +6,7 @@ const Advice = ({text,type}) => {
     return(
         <Fragment>
             <div className="advice">
-                <p className={type}><strong>{t('adviceTextTitle')} </strong>{text}</p>
+                <p className={type}><strong>{t('adviceTextTitle')}<br/></strong>{text}</p>
             </div>
         </Fragment>
     );   
