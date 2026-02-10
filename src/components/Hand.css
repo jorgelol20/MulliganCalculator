@@ -10,21 +10,22 @@
     border-radius: 10px;
     border: 1px black solid;
     padding: 10px;
-
+    h1{
+        font-size: 2.5em;
+        text-decoration:underline;
+    }
     .cards {
         display: flex;
         justify-content: center;
         width: 100%;
-        border: none;
+        border: 2px solid var(--color-borde);
+        background-color: var(--color-fondo);
     }
 }
 
 .hand {
-    background-color: rgb(26, 31, 44);
-
-    .cards {
-        background-color: rgb(26, 31, 44);
-    }
+    background-color: var(--color-secundario);
+    border: 2px solid var(--color-borde);
 }
 
 @media (min-width: 1200px) {
@@ -32,6 +33,5 @@
         display: flex;
         justify-content: center;
         width: 70%;
-        border: none;
     }
 }

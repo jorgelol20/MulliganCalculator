@@ -17,7 +17,7 @@ const Results = () => {
     const [results, setResults] = useState(undefined);
     const [numberOfMulligans, setNumberOfMulligans] = useState(0);
     const [display, setDisplay] = useState(false);
-    const {t, i18n} = useTranslation();
+    const { t, i18n } = useTranslation();
 
 
     if (contextDeck === undefined || contextDeck.length == 0) {
@@ -92,7 +92,7 @@ const Results = () => {
         async function tempFunction() {
             const timer = setTimeout(() => {
                 calculate();
-            }, 10)
+            }, 1000)
             return () => clearTimeout(timer);
         }
         tempFunction();
@@ -107,30 +107,29 @@ const Results = () => {
                 <h1>{
                     loading && <Loading key={Math.random().toString(36).substring(2, 15)} />
                 }</h1>
-                {
-                    !loading && <button onClick={() => {
-                        setDisplay(!display)
-                    }}>
-                        {display ? t('hideResults') : t('showResults')}
-                    </button>
-                }
-                {
-                    display && <div className='finalResults'>
-                        {
-                            !loading &&
-                            <div id='graphViwer'>
-                                {/* Gráfico múlligans */}
-                                <div id='mulligans'>
-                                    <GraphMulligans data={{ labels: ["Mulligans", "No mulligans"], datasets: [{ data: [numberOfMulligans, (numberOfHands - numberOfMulligans)], backgroundColor: ["red", "green"], borderColor: "black", borderWith: 2 }] }} />
-                                </div>
-                                {/* Gráfico cartas */}
-                                <div id='cards'>
-                                    <GraphCards cards={results} />
-                                </div>
+
+                <div className='finalResults'>
+                    {
+                        !loading && <button className='button' onClick={() => {
+                            setDisplay(!display);
+                        }}>
+                            {display ? t('hideResults') : t('showResults')}
+                        </button>
+                    }
+                    {
+                        !loading && display &&
+                        <div id='graphViwer' style={{enabled: !display}}>
+                            {/* Gráfico múlligans */}
+                            <div id='mulligans'>
+                                <GraphMulligans data={{ labels: ["Mulligans", "No mulligans"], datasets: [{ data: [numberOfMulligans, (numberOfHands - numberOfMulligans)], backgroundColor: ["red", "green"], borderColor: "black", borderWith: 2 }] }} />
                             </div>
-                        }
-                    </div>
-                }
+                            {/* Gráfico cartas */}
+                            <div id='cards'>
+                                <GraphCards cards={results} />
+                            </div>
+                        </div>
+                    }
+                </div>
                 {
                     !loading &&
                     <div id='handsViwer'>

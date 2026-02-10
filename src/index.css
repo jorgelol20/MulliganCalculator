@@ -1,4 +1,4 @@
-:root{
+:root {
     /* Paleta de colores de la página */
     --color-principal: #5C99C8;
     --color-secundario: #112636;
@@ -6,4 +6,9 @@
     --color-texto-secundario: #94a3b8;
     --color-borde: rgb(226, 235, 255);
     --color-fondo: #071016;
+}
+
+html {
+    color-scheme: dark;
+    font-family: 'Arial Narrow Bold', sans-serif;
 }

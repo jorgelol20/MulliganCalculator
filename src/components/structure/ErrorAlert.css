@@ -2,7 +2,7 @@
     border: 2px red solid;
     justify-self: center;
     align-self:center;
-    width: 100%;
+    width: 90%;
     padding: 5px;
     font-weight: bold;
     color: red;
@@ -36,4 +36,5 @@
 .errorContainer{
     border-radius: 5px;
         background-color: var(--color-fondo);
+        scroll-margin-top: 12vh;
 }

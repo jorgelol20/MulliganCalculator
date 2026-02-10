@@ -17,12 +17,18 @@ const Main = () => {
     const { setContextDeck } = useContext(cardsContext);
     const location = useLocation();
 
-
+    const moveToError = () => {
+        window.scrollTo({
+            top: "10vh",
+            behavior: 'smooth'
+        });
+        return true;
+    }
     const setNewDeck = (newDeck) => {
         setDeck(newDeck)
     }
     useEffect(() => {
-        contextError !== "" && contextError !== undefined ? setError(true) : null;
+        contextError !== "" && contextError !== undefined ? setError(true) : setError(false);
     }, [contextError])
 
     useEffect(() => {
@@ -33,12 +39,11 @@ const Main = () => {
 
     return (
         <Fragment>
-
             <div className="mainContainer">
                 <div className="form">
                     <div className="error">
                         {
-                            error ? <ErrorAlert id="error" errorMessage={contextError} /> : <></>
+                            error && moveToError() && <ErrorAlert id="error" errorMessage={contextError} />
                         }
                     </div>
                     <div className="textArea">

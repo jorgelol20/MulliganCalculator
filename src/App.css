@@ -3,12 +3,14 @@ html {
   display: flex;
   width: 100%;
   justify-content: center;
-  body{
+
+  body {
     width: 100%;
   }
+
   #mainTitle {
     font-weight: bold;
-    font-size: 5vh;
+    font-size: 2em;
     text-shadow: 2px 0px var(--color-principal);
   }
 }
@@ -16,15 +18,26 @@ html {
 html {
   background-color: var(--color-fondo);
   color: var(--color-texto);
-  font-family: 'Arial Narrow Bold', sans-serif;
+  color-scheme: dark;
+}
+
+.app {
+  width: 100%;
 }
 
 header {
   display: flex;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-fondo);
+  border-bottom: 1px solid var(--color-borde);
+  height: 10vh;
+  width: 100%;
   justify-items: center;
   align-items: center;
   align-content: center;
   justify-content: center;
+  z-index: 20;
   h1 {
     margin-right: 2em;
   }
@@ -71,6 +84,14 @@ header {
       0 0 6px #5246ff;
   }
 }
-.content{
+
+.content {
   margin-bottom: 1%;
+  margin-top: 5vh;
+}
+
+@media (min-width: 1200px) {
+  html #mainTitle {
+    font-size: 4em;
+  }
 }

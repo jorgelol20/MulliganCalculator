@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 const HandContainer = ({ hands }) => {
     const [display, setDisplay] = useState(false);
     const [loadedHands, setLoadedHands] = useState(undefined);
-    const {t, i18n} = useTranslation();
+    const { t, i18n } = useTranslation();
     const loadHands = (hands) => {
         setTimeout(() => {
             let returnHands = [];
@@ -45,6 +45,17 @@ const HandContainer = ({ hands }) => {
                         })
                     }
                 </div>
+                {
+                    display &&
+                    loadedHands !== undefined &&
+                    <button
+                        className="upButton"
+                        onClick={() => {
+                            document.querySelector(".container").scrollIntoView({
+                                behavior: 'smooth', block: "start", alignToTop: "true"
+                            })
+                        }}>1º</button>
+                }
             </div>
         </Fragment>
     )
