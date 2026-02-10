@@ -1,4 +1,4 @@
-import { useState, Fragment, Suspense, useRef } from 'react'
+import { useState, Fragment, Suspense, useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom';
 import Content from './components/pages/Content.jsx';
 import CardProvider from './context/CardProvider.jsx';
@@ -19,6 +19,9 @@ function App() {
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
   };
+  useEffect(()=>{
+        i18n.language.includes("es") ? changeLanguage('es') : changeLanguage('en');
+    },[])
 
   return (
     <>
