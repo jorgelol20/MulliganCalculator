@@ -36,18 +36,19 @@ const Main = () => {
         <Fragment>
 
             <div className="mainContainer">
-                <div className="leftSide">
-                    <div className="form">
-                        <Form
-                            setNewDeck={setNewDeck}
-                        />
-                    </div>
+                <div className="form">
                     <div className="error">
                         {
                             error ? <ErrorAlert id="error" errorMessage={contextError} /> : <></>
                         }
                     </div>
+                    <div className="textArea">
+                        <Form
+                            setNewDeck={setNewDeck}
+                        />
+                    </div>
                 </div>
+
                 <div className="showDeck">
                     <ShowDeck
                         deck={deck}

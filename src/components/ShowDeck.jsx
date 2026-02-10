@@ -145,7 +145,7 @@ const ShowDeck = ({ deck }) => {
                                 }
 
                             })
-                                : <h1>{t('selectDeckText')}</h1>
+                                : ""
                         }
 
                     </div>

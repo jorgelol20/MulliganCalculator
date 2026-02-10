@@ -1,11 +1,13 @@
 footer{
-    width: 100%;
+    font-size:0.5em;
+    width: 99%;
     position: absolute;
     text-align: center;
     align-content: center;
     vertical-align: bottom;
     font-weight: bold;
+    border-top: 1px var(--color-borde) solid;
     a{
-        color: white;
+        color: var(--color-texto);
     }
 }

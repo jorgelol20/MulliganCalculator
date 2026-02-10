@@ -1,7 +1,11 @@
 html {
   font-family: 'Arial Narrow Bold', sans-serif;
-  padding: 1%;
-
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  body{
+    width: 100%;
+  }
   #mainTitle {
     font-weight: bold;
     font-size: 5vh;
@@ -20,7 +24,7 @@ header {
   justify-items: center;
   align-items: center;
   align-content: center;
-
+  justify-content: center;
   h1 {
     margin-right: 2vh;
   }
@@ -66,4 +70,7 @@ header {
       0 0 6px #2836ff,
       0 0 6px #5246ff;
   }
+}
+.content{
+  margin-bottom: 1%;
 }

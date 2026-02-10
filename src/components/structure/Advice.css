@@ -2,12 +2,11 @@
     border: 2px rgb(255, 217, 0) groove;
     color: rgb(255, 217, 0);
     max-width: max-content;
-    padding: 5px;
     box-shadow:
-        0 0 5px #ff0000,
+        0 0 5px #ffd900,
         0 0 5px #fff,
-        0 0 5px #ff2828,
-        0 0 5px #ff4646;
+        0 0 5px #ffd900,
+        0 0 5px #ffd900;
 }
 .importante{
     border: 2px rgb(223, 7, 0) groove;
@@ -16,17 +15,16 @@
     box-shadow:
         0 0 5px #ff0000,
         0 0 5px #fff,
-        0 0 5px #ff2828,
-        0 0 5px #ff4646;
-    padding: 5px;
+        0 0 5px #ff0000,
+        0 0 5px #ff0000;
 }
-.advice{
+.aviso, .importante {
+    width: 90%;
+    background-color: var(--color-secundario);
+    font-weight: bold;
+    font-size: 0.8em;
+    padding: 1%;
+    margin-top: 0;
+    padding-top: 0;
     text-align: center;
-}
-@media (max-width: 1000px) {
-    .aviso, .importante{
-        max-width: 50vh;
-        width: 80cqw;
-
-    }
 }

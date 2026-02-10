@@ -34,7 +34,9 @@ function App() {
           <BrowserRouter>
             <ErrorProvider>
               <CardProvider>
-                <Content />
+                <div className='content'>
+                  <Content />
+                </div>
                 <Footer />
               </CardProvider>
             </ErrorProvider>

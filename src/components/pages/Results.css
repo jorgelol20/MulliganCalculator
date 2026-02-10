@@ -7,7 +7,7 @@
     #graphViwer {
         padding: 5px;
         margin-top: -1cqw;
-        border: 1px rgb(226, 235, 255) solid;
+        border: 1px var(--color-borde) solid;
         display: flex;
         flex-direction: row;
         flex: 1;
@@ -25,6 +25,7 @@
             width: 100%;
             min-width: 0;
             height: 600px;
+            margin-right: 1%;
         }
 
     }
