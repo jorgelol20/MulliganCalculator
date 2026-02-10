@@ -1,7 +1,6 @@
 .aviso{
     border: 2px rgb(255, 217, 0) groove;
     color: rgb(255, 217, 0);
-    max-width: max-content;
     box-shadow:
         0 0 5px #ffd900,
         0 0 5px #fff,
@@ -11,7 +10,6 @@
 .importante{
     border: 2px rgb(223, 7, 0) groove;
     color: rgb(223, 7, 0);
-    max-width: max-content;
     box-shadow:
         0 0 5px #ff0000,
         0 0 5px #fff,
@@ -27,4 +25,13 @@
     margin-top: 0;
     padding-top: 0;
     text-align: center;
+    max-width: 100%;
+}
+.advice {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+        text-align: center;
 }
