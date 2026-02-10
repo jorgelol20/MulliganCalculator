@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { cardsContext } from '../../context/CardProvider';
 import { NavLink } from 'react-router-dom';
-import lodash, { times } from 'lodash';
+import lodash from 'lodash';
 import Loading from '../Loading.jsx';
 import HandContainer from '../HandContainer.jsx';
 import GraphMulligans from '../structure/GraphMulligans.jsx';
@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 
 
 const Results = () => {
-    const { contextDeck, contextNumberOfHands: numberOfHands, setContextDeck } = useContext(cardsContext);
+    const { contextDeck, contextNumberOfHands: numberOfHands } = useContext(cardsContext);
     const [loading, setLoading] = useState(true);
     const [hands, setHands] = useState([]);
     const [results, setResults] = useState(undefined);
@@ -45,7 +45,7 @@ const Results = () => {
             let isMulligan = true;
 
             for (let card of newHand) {
-                if (card.cardType === t('pokemon') && card.pokemonType === t('basic')) {
+                if (card.cardType === "Pokémon" && card.pokemonType === "Básico" || card.cardType === "Pokemon" && card.pokemonType === "Basic") {
                     isMulligan = false;
                 }
             }
@@ -92,11 +92,12 @@ const Results = () => {
         async function tempFunction() {
             const timer = setTimeout(() => {
                 calculate();
-            }, 1000)
+            }, 10)
             return () => clearTimeout(timer);
         }
         tempFunction();
     }, [contextDeck])
+
     return (
         <Fragment>
             <NavLink key={Math.random().toString(36).substring(2, 15)} id='calc' to='/'>{t('backTitle')}</NavLink>

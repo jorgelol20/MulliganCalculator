@@ -57,7 +57,6 @@ const Form = ({ setNewDeck }) => {
                 }
                 return returnCard;
             });
-        console.log(formatedCardList)
         if (formatedCardList.includes(null) || formatedCardList.includes(undefined) || formatedCardList.length == 0) {
             setNewError(t('errorFormat'));
         }

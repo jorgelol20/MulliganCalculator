@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import Form from './../Form.jsx';
 import ShowDeck from "../ShowDeck.jsx";
 import './Main.css';
-import CardProvider from "../../context/CardProvider.jsx";
 import { errorContext } from "../../context/ErrorProvider.jsx";
 import { cardsContext } from "../../context/CardProvider.jsx";
 import ErrorAlert from "../structure/ErrorAlert.jsx";
