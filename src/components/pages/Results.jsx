@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { cardsContext } from '../../context/CardProvider';
 import { NavLink } from 'react-router-dom';
-import lodash, { times } from 'lodash';
+import lodash from 'lodash';
 import Loading from '../Loading.jsx';
 import HandContainer from '../HandContainer.jsx';
 import GraphMulligans from '../structure/GraphMulligans.jsx';
@@ -11,13 +11,13 @@ import { useTranslation } from 'react-i18next';
 
 
 const Results = () => {
-    const { contextDeck, contextNumberOfHands: numberOfHands, setContextDeck } = useContext(cardsContext);
+    const { contextDeck, contextNumberOfHands: numberOfHands } = useContext(cardsContext);
     const [loading, setLoading] = useState(true);
     const [hands, setHands] = useState([]);
     const [results, setResults] = useState(undefined);
     const [numberOfMulligans, setNumberOfMulligans] = useState(0);
     const [display, setDisplay] = useState(false);
-    const {t, i18n} = useTranslation();
+    const { t, i18n } = useTranslation();
 
 
     if (contextDeck === undefined || contextDeck.length == 0) {
@@ -45,7 +45,7 @@ const Results = () => {
             let isMulligan = true;
 
             for (let card of newHand) {
-                if (card.cardType === t('pokemon') && card.pokemonType === t('basic')) {
+                if (card.cardType === "Pokémon" && card.pokemonType === "Básico" || card.cardType === "Pokemon" && card.pokemonType === "Basic") {
                     isMulligan = false;
                 }
             }
@@ -97,6 +97,7 @@ const Results = () => {
         }
         tempFunction();
     }, [contextDeck])
+
     return (
         <Fragment>
             <NavLink key={Math.random().toString(36).substring(2, 15)} id='calc' to='/'>{t('backTitle')}</NavLink>
@@ -106,30 +107,29 @@ const Results = () => {
                 <h1>{
                     loading && <Loading key={Math.random().toString(36).substring(2, 15)} />
                 }</h1>
-                {
-                    !loading && <button onClick={() => {
-                        setDisplay(!display)
-                    }}>
-                        {display ? t('hideResults') : t('showResults')}
-                    </button>
-                }
-                {
-                    display && <div className='finalResults'>
-                        {
-                            !loading &&
-                            <div id='graphViwer'>
-                                {/* Gráfico múlligans */}
-                                <div id='mulligans'>
-                                    <GraphMulligans data={{ labels: ["Mulligans", "No mulligans"], datasets: [{ data: [numberOfMulligans, (numberOfHands - numberOfMulligans)], backgroundColor: ["red", "green"], borderColor: "black", borderWith: 2 }] }} />
-                                </div>
-                                {/* Gráfico cartas */}
-                                <div id='cards'>
-                                    <GraphCards cards={results} />
-                                </div>
+
+                <div className='finalResults'>
+                    {
+                        !loading && <button className='button' onClick={() => {
+                            setDisplay(!display);
+                        }}>
+                            {display ? t('hideResults') : t('showResults')}
+                        </button>
+                    }
+                    {
+                        !loading && display &&
+                        <div id='graphViwer' style={{enabled: !display}}>
+                            {/* Gráfico múlligans */}
+                            <div id='mulligans'>
+                                <GraphMulligans data={{ labels: ["Mulligans", "No mulligans"], datasets: [{ data: [numberOfMulligans, (numberOfHands - numberOfMulligans)], backgroundColor: ["red", "green"], borderColor: "black", borderWith: 2 }] }} />
                             </div>
-                        }
-                    </div>
-                }
+                            {/* Gráfico cartas */}
+                            <div id='cards'>
+                                <GraphCards cards={results} />
+                            </div>
+                        </div>
+                    }
+                </div>
                 {
                     !loading &&
                     <div id='handsViwer'>

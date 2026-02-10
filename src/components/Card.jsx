@@ -10,6 +10,7 @@ import Fairy_Energy from './../assets/img/Fairy_Energy.png';
 import Light_Energy from './../assets/img/Light_Energy.png';
 import Metal_Energy from './../assets/img/Metal_Energy.png';
 import Placeholder from './../assets/img/placeHolder.png';
+import { useTranslation } from "react-i18next";
 
 const selectImage = (card) => {
     switch (card) {
@@ -36,12 +37,13 @@ const selectImage = (card) => {
     }
 }
 const Card = ({ cardInfo }) => {
-    if (cardInfo.cardType === "Pokémon" || cardInfo.cardType === "Entrenador") {
+    const {t,i18n} = useTranslation();
+    if (cardInfo.cardType == t('pokemon') || cardInfo.cardType == t('trainer')) {
         return (
             <Fragment key={cardInfo.cardId}>
                 <div className="card" key={cardInfo.cardId}>
                     <div className="head">
-                        <label className="title">{cardInfo.name}</label>
+                        {/* <label className="title">{cardInfo.name}</label> */}
                         <label htmlFor="card" className="quantity">{cardInfo.quantity}</label>
                     </div>
                     <div className="body">
@@ -57,10 +59,10 @@ const Card = ({ cardInfo }) => {
                             />
                         </picture>
                     </div>
-                    <div className="cardInfo">
+                    {/* <div className="cardInfo">
                         <h3 id="set">{cardInfo.expansion}</h3>
                         <h3>ID: {cardInfo.cardNumber}</h3>
-                    </div>
+                    </div> */}
                 </div>
             </Fragment>
         )
@@ -68,9 +70,9 @@ const Card = ({ cardInfo }) => {
         return (<Fragment key={cardInfo.name}>
             <div className="card" key={cardInfo.name}>
                 <div className="head">
-                    <label className="title">{cardInfo.name}</label>
+                    {/* <label className="title">{cardInfo.name}</label> */}
                     <label htmlFor="card" className="quantity">{cardInfo.quantity}</label>
-                </div>
+                </div> 
 
                 <div className="body">
                     {
@@ -89,12 +91,12 @@ const Card = ({ cardInfo }) => {
                                 alt={cardInfo.name} />
                     }
                 </div>
-                {
+                {/* {
                     cardInfo.expansion && <div className="cardInfo">
                         <h3>Set: {cardInfo.expansion}</h3>
                         <h3>ID: {cardInfo.cardNumber}</h3>
                     </div>
-                }
+                } */}
             </div>
         </Fragment>
         )

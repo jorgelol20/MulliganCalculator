@@ -219,7 +219,7 @@ const usePokeAPI = (deck) => {
     };
     useEffect(() => {
         getDeckAPI(deck)
-    }, [deck])
+    }, [deck,i18n.language])
 
     return { deckAPI, loading };
 }

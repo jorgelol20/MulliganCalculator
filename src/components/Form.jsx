@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 const Form = ({ setNewDeck }) => {
     const { t, i18n } = useTranslation();
     const listRef = useRef(null);
-    const { setNewError, resetBadCards } = useContext(errorContext);
+    const { setNewError } = useContext(errorContext);
     /**
      * 
      */
@@ -57,24 +57,33 @@ const Form = ({ setNewDeck }) => {
                 }
                 return returnCard;
             });
-        console.log(formatedCardList)
         if (formatedCardList.includes(null) || formatedCardList.includes(undefined) || formatedCardList.length == 0) {
             setNewError(t('errorFormat'));
         }
         setNewDeck(formatedCardList);
+    }
+
+
+    const baseFunction = () => {
+        try {
+            formatCardList();
+        } catch (error) {
+            setNewDeck(error.message);
+        }
     }
     /**
      * 
      */
     return (
         <Fragment>
+            <div className='adviceBox'>
+                {
+                    i18n.language == "es" && <Advice text={"Algunas expansiones más antiguas no están disponibles aún en español. Las cartas en el formato estándard funcionan sin ningún problema. Se recomienda el uso del idioma inglés si vas a hacer uso de cartas del formato 'Expandido'. Disculpar las molestias"} type={"importante"} />
+                }
+            </div>
             <form className='deckForm' id='deckForm'>
                 <div>
-                    <div className='advice'>
-                        {
-                            i18n.language == "es" && <Advice text={"Algunas expansiones como HIF no están disponibles aún. Las actuales funcionan sin ningún problema. Disculpar las molestias"} type={"importante"} />
-                        }
-                    </div>
+                    <h3>Deck list</h3>
                     <textarea
                         autoFocus
                         spellCheck="false"
@@ -85,19 +94,12 @@ const Form = ({ setNewDeck }) => {
                         id="deckList"
                         placeholder={t('textArea')}
                     />
-                </div>
-                <br />
-                <div>
                     <input
                         type="submit"
                         value={t('checkButton')}
                         onClick={(event) => {
                             event.preventDefault();
-                            try {
-                                formatCardList();
-                            } catch (error) {
-                                setNewDeck(error.message);
-                            }
+                            baseFunction();
                         }} />
                 </div>
             </form>

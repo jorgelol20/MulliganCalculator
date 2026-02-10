@@ -58,7 +58,6 @@ const ShowDeck = ({ deck }) => {
             setCardQuantity(cards);
         }
     }, [deckAPI])
-
     /**
      * Cuando el usuario cambia en el select el número de pruebas, el useEffect detecta el cambio y lo settea en el contexto.
      */
@@ -145,7 +144,7 @@ const ShowDeck = ({ deck }) => {
                                 }
 
                             })
-                                : <h1>{t('selectDeckText')}</h1>
+                                : ""
                         }
 
                     </div>

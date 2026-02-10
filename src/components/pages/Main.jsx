@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import Form from './../Form.jsx';
 import ShowDeck from "../ShowDeck.jsx";
 import './Main.css';
-import CardProvider from "../../context/CardProvider.jsx";
 import { errorContext } from "../../context/ErrorProvider.jsx";
 import { cardsContext } from "../../context/CardProvider.jsx";
 import ErrorAlert from "../structure/ErrorAlert.jsx";
@@ -18,12 +17,18 @@ const Main = () => {
     const { setContextDeck } = useContext(cardsContext);
     const location = useLocation();
 
-
+    const moveToError = () => {
+        window.scrollTo({
+            top: "10vh",
+            behavior: 'smooth'
+        });
+        return true;
+    }
     const setNewDeck = (newDeck) => {
         setDeck(newDeck)
     }
     useEffect(() => {
-        contextError !== "" && contextError !== undefined ? setError(true) : null;
+        contextError !== "" && contextError !== undefined ? setError(true) : setError(false);
     }, [contextError])
 
     useEffect(() => {
@@ -34,20 +39,20 @@ const Main = () => {
 
     return (
         <Fragment>
-
             <div className="mainContainer">
-                <div className="leftSide">
-                    <div className="form">
+                <div className="form">
+                    <div className="error">
+                        {
+                            error && moveToError() && <ErrorAlert id="error" errorMessage={contextError} />
+                        }
+                    </div>
+                    <div className="textArea">
                         <Form
                             setNewDeck={setNewDeck}
                         />
                     </div>
-                    <div className="error">
-                        {
-                            error ? <ErrorAlert id="error" errorMessage={contextError} /> : <></>
-                        }
-                    </div>
                 </div>
+
                 <div className="showDeck">
                     <ShowDeck
                         deck={deck}

@@ -2,13 +2,14 @@
     border: 2px red solid;
     justify-self: center;
     align-self:center;
-    width: 100%;
+    width: 90%;
     padding: 5px;
     font-weight: bold;
     color: red;
     margin-bottom: 1%;
     h1{
         text-align: center;
+        font-size: 1em;
     }
     p{
         padding: 5px;
@@ -32,8 +33,8 @@
         width: 0%;
     }
 }
-@media (prefers-color-scheme: dark) {
-    .errorContainer{
-        background-color: rgba(0, 15, 51, 0.356);
-    }
+.errorContainer{
+    border-radius: 5px;
+        background-color: var(--color-fondo);
+        scroll-margin-top: 12vh;
 }

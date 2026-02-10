@@ -5,23 +5,31 @@
         flex-direction: row;
     }
     .form{
-        width: 35vh;
+        min-width: 20%;
+        max-width: 20%;
+        padding: 1%;
+        padding-top: 0%;
         height: fit-content;
-    }
-    .leftSide{
-        width: 35vh;
         display: flex;
-        margin-right: 7vh;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
+        align-content: center;
     }
     .error{
-           width: 35vh;
-           justify-self: center;
+           width: 100%;
            font-weight: bold;
+           display: flex;
+           text-align: center;
+    }
+    .textArea{
+        width: 100%;
+    }
+    .showDeck{
+        min-width: 70%;
     }
 }
-@media (max-width: 1199px) {
+@media (max-width: 1200px) {
     .mainContainer{
         display: flex;
         flex-direction: column;
@@ -29,11 +37,12 @@
         align-items: center;
         align-content: center;
     }
+    .showDeck{
+        width: 100%;
+    }
     .form{
         width: 100%;
+        margin-bottom: 2%;
         height: fit-content;
-    }
-    .leftSide{
-        width: 100%;
     }
 }

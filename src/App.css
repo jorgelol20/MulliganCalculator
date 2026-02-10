@@ -1,29 +1,48 @@
 html {
-    font-family:'Arial Narrow Bold', sans-serif;
-
-    padding: 1%;
-    #mainTitle{
-      font-weight: bold;
-      font-size:5vh;
-      text-shadow: 1px 0px rgb(46, 31, 255) ;
-    }
-  }
-
-  html {
-    background-color: rgb(11, 15, 24);
-    color: rgb(226, 235, 255);
-    font-family:'Arial Narrow Bold', sans-serif;
-  }
-
-header{
+  font-family: 'Arial Narrow Bold', sans-serif;
   display: flex;
+  width: 100%;
+  justify-content: center;
+
+  body {
+    width: 100%;
+  }
+
+  #mainTitle {
+    font-weight: bold;
+    font-size: 2em;
+    text-shadow: 2px 0px var(--color-principal);
+  }
+}
+
+html {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  color-scheme: dark;
+}
+
+.app {
+  width: 100%;
+}
+
+header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-fondo);
+  border-bottom: 1px solid var(--color-borde);
+  height: 10vh;
+  width: 100%;
   justify-items: center;
   align-items: center;
   align-content: center;
-  h1{
-    margin-right: 2vh;
+  justify-content: center;
+  z-index: 20;
+  h1 {
+    margin-right: 2em;
   }
-  button{
+
+  button {
     border-radius: 5px;
     min-width: 5vh;
     min-height: 5vh;
@@ -33,9 +52,46 @@ header{
     display: flex;
     justify-content: center;
     text-align: center;
-    img{
+
+    img {
       width: 100%;
       height: 100%;
     }
+  }
+
+  button {
+    background-color: var(--color-fondo);
+    font-family: 'Arial Narrow Bold', sans-serif;
+  }
+
+  .active {
+    background-color: var(--color-secundario);
+    box-shadow:
+      0 0 5px #fff,
+      0 0 5px #fff,
+      0 0 5px #2836ff,
+      0 0 5px #5246ff;
+  }
+
+  button:hover {
+    background-color: var(--color-principal);
+    border: 2px solid rgb(235, 237, 243) !important;
+    color-scheme: dark;
+    box-shadow:
+      0 0 6px #fff,
+      0 0 6px #fff,
+      0 0 6px #2836ff,
+      0 0 6px #5246ff;
+  }
+}
+
+.content {
+  margin-bottom: 1%;
+  margin-top: 5vh;
+}
+
+@media (min-width: 1200px) {
+  html #mainTitle {
+    font-size: 4em;
   }
 }

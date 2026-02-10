@@ -28,13 +28,15 @@ function App() {
         <div className='app'>
           <header>
             <h1 id='mainTitle'>{t('mainTitle')}</h1>
-            <button className='languajeButton' onClick={() => changeLanguage("es")}><img src={SpainFlag} alt="Spain Flag" /></button>
-            <button className='languajeButton' onClick={() => changeLanguage("en")}><img src={USAFlag} alt="USA Flag" /></button>
+            <button className={i18n.language == "es" ? 'languajeButton active' : 'languajeButton'} onClick={() => changeLanguage("es")}><img src={SpainFlag} alt="Spain Flag" /></button>
+            <button className={i18n.language == "en" ? 'languajeButton active' : 'languajeButton'} onClick={() => changeLanguage("en")}><img src={USAFlag} alt="USA Flag" /></button>
           </header>
           <BrowserRouter>
             <ErrorProvider>
               <CardProvider>
-                <Content />
+                <div className='content'>
+                  <Content />
+                </div>
                 <Footer />
               </CardProvider>
             </ErrorProvider>
