@@ -1,4 +1,5 @@
-{
+{   
+    "pageHeadertitle": "How to use the Pokémon TCG Mulligan Calculator",
     "mainTitle": "Mulligan Calculator",
     "textArea": "Decks imported from TCG Live and the Limitless deck builder are accepted",
     "errorFormat": "Error processing cards, please check if they were copied correctly",
