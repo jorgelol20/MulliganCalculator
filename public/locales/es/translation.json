@@ -1,4 +1,5 @@
 {
+    "pageHeadertitle": "How to use the Pokémon TCG Mulligan Calculator",
     "mainTitle" : "Calculadora de Mulligans",
     "textArea" : "Se aceptan mazos importados desde TCG Live y el creador de mazos de Limitless",
     "errorFormat" : "Error al procesar las cartas, comprueba que se haya copiado correctamente",

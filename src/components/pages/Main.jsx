@@ -9,7 +9,6 @@ import ErrorAlert from "../structure/ErrorAlert.jsx";
 
 
 
-
 const Main = () => {
     const [deck, setDeck] = useState(undefined);
     const [error, setError] = useState(false);

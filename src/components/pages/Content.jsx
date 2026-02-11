@@ -1,13 +1,14 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import './Content.css';
 import PageRoutes from "../structure/PageRoutes";
 
-const Content = () => {
 
+const Content = () => {
+    
     return (
         <Fragment>
             <main>
-                {<PageRoutes/>}
+                {<PageRoutes />}
             </main>
         </Fragment>
     );
