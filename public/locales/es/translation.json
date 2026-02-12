@@ -14,7 +14,7 @@
     "calcButton" : "Calcular Mulligans (Pruebas:",
     "selectDeckText" : "Seleccione el deck",
     "numberOfTestText" : "Número de pruebas:",
-    "backTitle" : "Volver al inicio",
+    "backTitle" : "Volver a la selección de mazo",
     "errorResultsTitle": "No se ha especificado ningún mazo",
     "loadingResults": "Cargando resultados...",
     "resultsTitle": "Resultados: ",
@@ -29,5 +29,13 @@
     "trainer": "Entrenador",
     "cardAppears": "% de Aparición de las cartas",
     "mulliganPercent": "% de mulligans",
-    "copyright": "Mulligan Calculator es una herramienta fan-made sin fines de lucro. Este sitio no está afiliado, respaldado ni apoyado por Nintendo, Game Freak o The Pokémon Company.Todas las imagenes de las cartas y su información han sido suministradas mediante el uso de TCGDex API"
+    "copyright": "Mulligan Calculator es una herramienta fan-made sin fines de lucro. Este sitio no está afiliado, respaldado ni apoyado por Nintendo, Game Freak o The Pokémon Company.Todas las imagenes de las cartas y su información han sido suministradas mediante el uso de TCGDex API",
+
+    "welcome-subtitle": "Toma decisiones basadas en datos reales, no en instintos.",
+    "welcome-howItWorks": "¿Cómo funciona?",
+    "welcome-step1": "Importa tu mazo directamente desde el creador de mazos de Limitless o Pokémon TCG Live.",
+    "welcome-step2": "Configura el número de simulaciones para obtener una muestra estadística fiable.",
+    "welcome-step3": "Analiza el porcentaje de 'Mulligans' y la probabilidad de aparición de cada carta en tu mano inicial.",
+    "welcome-startToCalc": "¡Empieza a calcular!",
+    "welcome-goToCalc": "Ir a la calculadora"
 }
