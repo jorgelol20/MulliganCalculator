@@ -1,14 +1,14 @@
 import React, { Fragment, useState } from "react";
 import './Card.css';
-import Fight_Energy from './../assets/img/Fight_Energy.png';
-import Fire_Energy from './../assets/img/Fire_Energy.png';
-import Water_Energy from './../assets/img/Water_Energy.png';
-import Grass_Energy from './../assets/img/Grass_Energy.png';
-import Psychic_Energy from './../assets/img/Psychic_Energy.png';
-import Dark_Energy from './../assets/img/Dark_Energy.png';
-import Fairy_Energy from './../assets/img/Fairy_Energy.png';
-import Light_Energy from './../assets/img/Light_Energy.png';
-import Metal_Energy from './../assets/img/Metal_Energy.png';
+import Fight_Energy from './../assets/img/energies/Fight_Energy.png';
+import Fire_Energy from './../assets/img/energies/Fire_Energy.png';
+import Water_Energy from './../assets/img/energies/Water_Energy.png';
+import Grass_Energy from './../assets/img/energies/Grass_Energy.png';
+import Psychic_Energy from './../assets/img/energies/Psychic_Energy.png';
+import Dark_Energy from './../assets/img/energies/Dark_Energy.png';
+import Fairy_Energy from './../assets/img/energies/Fairy_Energy.png';
+import Light_Energy from './../assets/img/energies/Light_Energy.png';
+import Metal_Energy from './../assets/img/energies/Metal_Energy.png';
 import Placeholder from './../assets/img/placeHolder.png';
 import { useSSR, useTranslation } from "react-i18next";
 
@@ -58,7 +58,8 @@ const Card = ({ cardInfo, setNewCardInfo }) => {
                                     e.currentTarget.onerror = null;
                                     e.currentTarget.src = Placeholder;
                                 }}
-                                alt={cardInfo.name}
+                                alt={cardInfo.name +" Pokémon TCG"}
+                                title={cardInfo.name +" Pokémon TCG"}
                             />
                         </picture>
                     </div>
@@ -87,19 +88,16 @@ const Card = ({ cardInfo, setNewCardInfo }) => {
                                     e.currentTarget.onerror = null;
                                     e.currentTarget.src = Placeholder;
                                 }}
-                                alt={cardInfo.name}
+                                alt={cardInfo.name +" Pokémon TCG"}
+                                title={cardInfo.name +" Pokémon TCG"}
                             />
                             : <img
                                 src={selectImage(cardInfo.name)}
-                                alt={cardInfo.name} />
+                                alt={"Pokémon TCG "+cardInfo.name}
+                                title={"Pokémon TCG "+cardInfo.name}
+                                 />
                     }
                 </div>
-                {/* {
-                    cardInfo.expansion && <div className="cardInfo">
-                        <h3>Set: {cardInfo.expansion}</h3>
-                        <h3>ID: {cardInfo.cardNumber}</h3>
-                    </div>
-                } */}
             </div>
         </Fragment>
         )
