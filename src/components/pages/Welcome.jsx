@@ -9,8 +9,10 @@ const Welcome = () => {
         <Fragment>
             <main className="mainWelcome">
                 <div className="mainContent">
-                    <h1>Mulligan Calculator</h1>
-                    <h3 id="subtitle">{t('welcome-subtitle')}</h3>
+                    <div className="title">
+                        <h1>{t('mainTitle')}</h1>
+                        <h3 id="subtitle">{t('welcome-subtitle')}</h3>
+                    </div>
                     <h2>{t("welcome-howItWorks")}</h2>
                     <ol>
                         <li>{t("welcome-step1")}</li>

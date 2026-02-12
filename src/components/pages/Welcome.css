@@ -17,7 +17,6 @@
             font-size: 3em;
             margin-bottom: 0;
         }
-
         h2 {
             font-size: 2em;
             text-align: center;
@@ -58,5 +57,18 @@
             0 0 5px #fff,
             0 0 5px #2836ff,
             0 0 5px #5246ff;
+    }
+}
+@media (max-width: 1000px) {
+    .mainWelcome .mainContent .title{
+        width: 100%;
+        background-image: url("/locales/welcome-background-image.webp");    
+        background-position: 0;
+        background-size: cover;    
+        h1, #subtitle{
+            background-color: var(--color-fondo-transparente);
+            padding-left: 1%;
+            padding-bottom: 1%;
+        }
     }
 }
