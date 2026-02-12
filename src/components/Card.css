@@ -24,7 +24,9 @@
 .card:hover{
     scale: 1.1;
 }
-
+.cardInfo{
+    position: relative;
+}
 .head {
     display: flex;
     justify-content: space-between;
@@ -66,29 +68,6 @@
     width: 100%;
     position: relative;
 }
-
-.cardInfo {
-    margin-top: 8px;
-    text-align: left;
-    min-height: 40px;
-    font-size: 1em;
-}
-
-.cardInfo h3 {
-    font-size: 0.7rem;
-    color: var(--color-texto-secundario);
-    margin: 2px 0;
-    font-weight: 400;
-    display: block;
-    overflow: hidden;
-    white-space: wrap;
-    text-overflow: ellipsis;
-
-    #set {
-        text-align: center;
-    }
-}
-
 /* Ajustes para PC (Pantallas mayores a 768px) */
 @media (min-width: 1000px) {
     .container-cards {

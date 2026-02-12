@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState, useRef } from 'react';
+import React, { Fragment, useContext, useEffect, useState, useRef, act } from 'react';
 import { NavLink } from 'react-router-dom';
 import './ShowDeck.css';
 import usePokeAPI from '../Hooks/usePokeAPI.js';
@@ -8,6 +8,7 @@ import Loading from './Loading.jsx';
 import Advice from './structure/Advice.jsx';
 import { errorContext } from '../context/ErrorProvider.jsx';
 import { useTranslation } from 'react-i18next';
+import CardInfo from "./CardInfo.jsx";
 
 const ShowDeck = ({ deck }) => {
     const { deckAPI, loading } = usePokeAPI(deck);
@@ -16,7 +17,8 @@ const ShowDeck = ({ deck }) => {
     const [numberOfHands, setNumberOfHands] = useState(10);
     const { setNewError, badCards, resetBadCards } = useContext(errorContext);
     const numberOfHandsRef = useRef(null);
-    const {t, i18n} = useTranslation();
+    const [actualCardInfo, setActualCard] = useState(null);
+    const { t } = useTranslation();
 
     const redirectRoute = (e) => {
         if (cardQuantity !== 60) {
@@ -38,6 +40,11 @@ const ShowDeck = ({ deck }) => {
         setNewError(`${t('loadingError')}:  ${badCardsString}`);
         resetBadCards();
     }
+
+    const setNewCardInfo = (newCardInfo) => {
+        setActualCard(newCardInfo);
+    }
+
     /**
      * Cuando detecta cambios en "deckAPI" (export de 'usePokeAPI.js'), realiza las siguientes acciones:
      * 1- Obtiene si han habido errores en alguna carta y muestra en qué líneas hay una carta "mala". Esto se le pasa al componente de mensaje de error y como "errorMessage";
@@ -140,15 +147,21 @@ const ShowDeck = ({ deck }) => {
                                     return <Card
                                         className="card"
                                         key={window.crypto ? crypto.randomUUID?.() : Math.random().toString(36).substring(2, 15)}
-                                        cardInfo={card} />
+                                        cardInfo={card}
+                                        setNewCardInfo={setNewCardInfo}
+                                    />
                                 }
 
                             })
                                 : ""
                         }
-
                     </div>
                 }
+                <div className='cardInfo'>
+                    {
+                        load && actualCardInfo !== null && <CardInfo cardInfo={actualCardInfo} setNewCardInfo={setNewCardInfo} />
+                    }
+                </div>
             </section>
         </Fragment>
     )

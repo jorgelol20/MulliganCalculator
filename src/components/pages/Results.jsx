@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 import lodash from 'lodash';
 import Loading from '../Loading.jsx';
 import HandContainer from '../HandContainer.jsx';
-import GraphMulligans from '../structure/GraphMulligans.jsx';
-import GraphCards from '../structure/GraphCards.jsx';
+import GraphMulligans from '../GraphMulligans.jsx';
+import GraphCards from '../GraphCards.jsx';
 import './Results.css';
 import { useTranslation } from 'react-i18next';
 
