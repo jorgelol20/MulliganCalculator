@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background-image: url("src/assets/img/welcome-background-image.webp");
+    background-image: url("/locales/welcome-background-image.webp");
     background-size: cover;
     background-position: 0;
 
