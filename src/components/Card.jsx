@@ -67,7 +67,11 @@ const Card = ({ cardInfo, setNewCardInfo }) => {
         )
     } else {
         return (<Fragment key={cardInfo.name}>
-            <div className="card" key={cardInfo.name}>
+            <div className="card" key={cardInfo.name} onClick={() => {
+                if (cardInfo.expansion) {
+                    setNewCardInfo(cardInfo);
+                }
+            }}>
                 <div className="head">
                     {/* <label className="title">{cardInfo.name}</label> */}
                     <label htmlFor="card" className="quantity">{cardInfo.quantity}</label>
