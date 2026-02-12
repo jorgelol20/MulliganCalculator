@@ -6,6 +6,7 @@
     --color-texto-secundario: #94a3b8;
     --color-borde: rgb(226, 235, 255);
     --color-fondo: #071016;
+    --color-fondo-transparente: #07101681;
 }
 
 html {
