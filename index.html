@@ -9,34 +9,39 @@
     content="Calculate your mulligan odds for Pokémon TCG accurately. Support for TCG Live and Limitless deck lists. Free fan-made tool." />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Pokémon TCG Mulligan Calculator" />
-  <meta property="og:description"
-    content="Calculate your mulligan odds and optimize your deck consistency. Supports TCG Live and Limitless." />
+  <meta property="og:title" content="Pokémon TCG Mulligan Simulator" />
+  <meta property="og:description" content="Brute-force simulation for accurate mulligan odds. See how your deck actually performs." />
   <meta property="og:image" content="/locales/mulligan-calculator-icon.png" />
-  <meta name="author" content="jorgelol20" />
-
-  <meta name="copyright"
-    content="Mulligan Calculator is a non-profit, fan-made tool. This site is not affiliated with, endorsed, or supported by Nintendo, Game Freak, or The Pokémon Company. All card images and information are provided through the use of the TCGDex API." />
 
   <meta name="google-site-verification" content="uGw0m67vhVWVM5rrpqiqs_WZaJPE1_DPLj9wDX8RRHg" />
-
   <link rel="icon" type="image/png" href="/locales/mulligan-calculator-icon.png" />
 </head>
 
 <body>
   <div id="root">
-    <div style="padding: 20px;">
-      <h1>Pokémon TCG Mulligan Calculator</h1>
-      <p>Calculate your deck consistency and mulligan odds for Pokémon TCG. Supports TCG Live and Limitless deck lists.
+    <div style="padding: 20px; font-family: sans-serif;">
+      <h1>Pokémon TCG Mulligan & Opening Hand Simulator</h1>
+      <p>
+        Most calculators use simple math. We use <strong>brute-force Monte Carlo simulations</strong>. 
+        By simulating thousands of random opening hands from your actual deck list, we provide a 
+        real-world look at your deck's consistency and mulligan probability.
       </p>
-      <hr />
-      <h2>Calculadora de Mulligan para Pokémon TCG</h2>
-      <p>Calcula tus probabilidades de mulligan en Pokémon TCG. Soporte directo para listados de Limitless y TCG Live.
+      
+      <h2>Calculadora y Simulador de Mulligan para Pokémon TCG</h2>
+      <p>
+        No te quedes solo con la teoría. Nuestro simulador realiza <strong>miles de pruebas de "fuerza bruta"</strong> 
+        generando manos aleatorias reales para decirte cuántas veces tendrás que hacer mulligan con tu mazo de 
+        <strong>Pokémon TCG Live</strong> o <strong>Limitless</strong>.
       </p>
+
+      <ul>
+        <li>Real-world shuffle simulation (Monte Carlo method).</li>
+        <li>Instant import from TCG Live and Limitless formats.</li>
+        <li>Accurate Basic Pokémon draw rates.</li>
+      </ul>
     </div>
   </div>
 
   <script type="module" src="/src/main.jsx"></script>
 </body>
-
 </html>

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import './Card.css';
 import Fight_Energy from './../assets/img/Fight_Energy.png';
 import Fire_Energy from './../assets/img/Fire_Energy.png';
@@ -10,7 +10,7 @@ import Fairy_Energy from './../assets/img/Fairy_Energy.png';
 import Light_Energy from './../assets/img/Light_Energy.png';
 import Metal_Energy from './../assets/img/Metal_Energy.png';
 import Placeholder from './../assets/img/placeHolder.png';
-import { useTranslation } from "react-i18next";
+import { useSSR, useTranslation } from "react-i18next";
 
 const selectImage = (card) => {
     switch (card) {
@@ -36,12 +36,15 @@ const selectImage = (card) => {
             return null;
     }
 }
-const Card = ({ cardInfo }) => {
-    const {t,i18n} = useTranslation();
+const Card = ({ cardInfo, setNewCardInfo }) => {
+    const [displayInfo, setDisplay] = useState(false);
+    const { t, i18n } = useTranslation();
     if (cardInfo.cardType == t('pokemon') || cardInfo.cardType == t('trainer')) {
         return (
             <Fragment key={cardInfo.cardId}>
-                <div className="card" key={cardInfo.cardId}>
+                <div onClick={() => {
+                    setNewCardInfo(cardInfo);
+                }} className="card" key={cardInfo.cardId}>
                     <div className="head">
                         {/* <label className="title">{cardInfo.name}</label> */}
                         <label htmlFor="card" className="quantity">{cardInfo.quantity}</label>
@@ -59,10 +62,6 @@ const Card = ({ cardInfo }) => {
                             />
                         </picture>
                     </div>
-                    {/* <div className="cardInfo">
-                        <h3 id="set">{cardInfo.expansion}</h3>
-                        <h3>ID: {cardInfo.cardNumber}</h3>
-                    </div> */}
                 </div>
             </Fragment>
         )
@@ -72,7 +71,7 @@ const Card = ({ cardInfo }) => {
                 <div className="head">
                     {/* <label className="title">{cardInfo.name}</label> */}
                     <label htmlFor="card" className="quantity">{cardInfo.quantity}</label>
-                </div> 
+                </div>
 
                 <div className="body">
                     {
