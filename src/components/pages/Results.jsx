@@ -100,7 +100,7 @@ const Results = () => {
 
     return (
         <Fragment>
-            <NavLink key={Math.random().toString(36).substring(2, 15)} id='calc' to='/'>{t('backTitle')}</NavLink>
+            <NavLink key={Math.random().toString(36).substring(2, 15)} id='calc' to='/calc'>{t('backTitle')}</NavLink>
             <h1>{loading ? t('loadingResults') : t('resultsTitle')}</h1>
             <br />
             <div className='results'>

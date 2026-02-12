@@ -14,7 +14,7 @@
     "calcButton": "Calculate Mulligans (Tests:",
     "selectDeckText": "Select deck",
     "numberOfTestText": "Number of tests:",
-    "backTitle": "Back to home",
+    "backTitle": "Back to deck selection",
     "errorResultsTitle": "No deck has been specified",
     "loadingResults": "Loading results...",
     "resultsTitle": "Results: ",
@@ -29,5 +29,12 @@
     "trainer": "Trainer",
     "cardAppears": "Card Appearance %",
     "mulliganPercent": "Mulligan %",
-    "copyright": "Mulligan Calculator is a non-profit, fan-made tool. This site is not affiliated with, endorsed, or supported by Nintendo, Game Freak, or The Pokémon Company. All card images and information are provided through the use of the TCGDex API."
+    "copyright": "Mulligan Calculator is a non-profit, fan-made tool. This site is not affiliated with, endorsed, or supported by Nintendo, Game Freak, or The Pokémon Company. All card images and information are provided through the use of the TCGDex API.",
+    "welcome-subtitle": "Make decisions based on real data, not just gut feeling.",
+    "welcome-howItWorks": "How does it work?",
+    "welcome-step1": "Import your decklist directly from the Limitless deck builder or Pokémon TCG Live.",
+    "welcome-step2": "Set the number of simulations to obtain a reliable statistical sample.",
+    "welcome-step3": "Analyze the 'Mulligan' percentage and the probability of each card appearing in your starting hand.",
+    "welcome-startToCalc": "Start calculating!",
+    "welcome-goToCalc": "Go to the calculator"
 }

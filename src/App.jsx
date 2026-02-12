@@ -30,7 +30,7 @@ function App() {
         <Analytics />
         <div className='app'>
           <header>
-            <h1 id='mainTitle'>{t('mainTitle')}</h1>
+            <h1 id='mainTitle'><a href="/">{t('mainTitle')}</a></h1>
             <button className={i18n.language == "es" ? 'languajeButton active' : 'languajeButton'} onClick={() => changeLanguage("es")}><img src={SpainFlag} alt="Spain Flag" title='Spain Flag' /></button>
             <button className={i18n.language == "en" ? 'languajeButton active' : 'languajeButton'} onClick={() => changeLanguage("en")}><img src={USAFlag} alt="USA Flag" title='Spain Flag'/></button>
           </header>

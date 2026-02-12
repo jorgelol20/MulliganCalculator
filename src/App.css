@@ -24,7 +24,10 @@ html {
 .app {
   width: 100%;
 }
-
+a{
+  text-decoration: none;
+  color: var(--color-texto);
+}
 header {
   display: flex;
   position: sticky;
