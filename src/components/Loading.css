@@ -1,13 +1,15 @@
 .heracross{
-    width: 150px;
+    width: 5em;
     animation: rotate 2s infinite ;
     cursor:crosshair;
 }
 .heracross-btn{
-    width: 150px;
+    width: max-content;
     background: none;
     border: none;
-
+}
+.loading{
+    margin-bottom: 2em;
 }
 @keyframes rotate {
     0%{
