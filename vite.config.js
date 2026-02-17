@@ -3,9 +3,5 @@ import react from '@vitejs/plugin-react'
 import Sitemap from 'vite-plugin-sitemap'
 
 export default defineConfig({
-  plugins: [react(),
-  Sitemap({
-    hostnane: 'https://mulligan-calculator.vercel.app/',
-    dynamicRoutes: ['/','/results']
-  })]
+  plugins: [react()]
 })
