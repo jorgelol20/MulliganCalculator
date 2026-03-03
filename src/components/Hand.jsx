@@ -11,6 +11,7 @@ const Hand = ({ hand }) => {
                 <div className='cards'>
                     {
                         hand.hand.map((card) => {
+                            card.quantity = 1;
                             return <Card
                                 className="card"
                                 loading="lazy"

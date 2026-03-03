@@ -53,11 +53,11 @@ const CustomizedContent = (props) => {
   );
 };
 
-const GraphCards = ({ cards }) => {
+const GraphCards = ({ cards, numberOfHands }) => {
   const {t, i18n} = useTranslation();
   const data = cards.map((c) => ({
     name: c.name,
-    size: Number(c.appears) || 0,
+    size: Number((c.appears * 100 / numberOfHands).toFixed(1)) || 0,
   }));
 
   if (data.length === 0) return <p>Cargando datos...</p>;
@@ -74,7 +74,10 @@ const GraphCards = ({ cards }) => {
           content={<CustomizedContent />}
         >
           <Tooltip
-            formatter={(value, name) => [`${value}%`, name]}
+            formatter={(value, name) => [
+              `${t('numberOf')}${value}%${t('numberOf2')}`, 
+              name
+            ]}
           />
         </Treemap>
       </ResponsiveContainer>

@@ -59,21 +59,21 @@ const Results = () => {
         //Viendo al cantidad de cartas que sale
         let tempDeckMap = new Map();
         for (let hand of tempHands) {
+            let tempHand = new Map();
             for (let card of hand.hand) {
-                if (tempDeckMap.has(card)) {
+                if (tempDeckMap.has(card) && !tempHand.has(card)) {
                     card.appears = card.appears + 1;
                     tempDeckMap.set(card);
+                    tempHand.set(card)
                 } else {
                     card.appears = 1;
                     tempDeckMap.set(card);
+                    tempHand.set(card)
                 }
             }
         }
         for (let [card, value] of tempDeckMap) {
             tempDeck.push(card);
-        }
-        for (let card of tempDeck) {
-            card.appears = (card.appears * 100 / numberOfHands).toFixed(1);
         }
         let tempNumberOfMulligans = 0;
         for (let hand of tempHands) {
@@ -125,7 +125,7 @@ const Results = () => {
                             </div>
                             {/* Gráfico cartas */}
                             <div id='cards'>
-                                <GraphCards cards={results} />
+                                <GraphCards cards={results} numberOfHands = {numberOfHands} />
                             </div>
                         </div>
                     }
