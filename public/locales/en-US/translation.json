@@ -35,5 +35,7 @@
     "welcome-step1": "Import your decklist directly from the Limitless deck builder or Pokémon TCG Live.",
     "welcome-step2": "Set the number of simulations to obtain a reliable statistical sample.",
     "welcome-step3": "Analyze the 'Mulligan' percentage and the probability of each card appearing in your starting hand.",
-    "welcome-startToCalc": "Start calculating!"
+    "welcome-startToCalc": "Start calculating!",
+    "numberOf": "The card appears on the ",
+    "numberOf2": " of the inicial hands."
 }

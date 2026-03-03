@@ -27,7 +27,7 @@
     "basic" : "Básico",
     "pokemon" : "Pokémon",
     "trainer": "Entrenador",
-    "cardAppears": "% de Aparición de las cartas",
+    "cardAppears": "% de Aparición de las cartas en la mano inicial",
     "mulliganPercent": "% de mulligans",
     "copyright": "Mulligan Calculator es una herramienta fan-made sin fines de lucro. Este sitio no está afiliado, respaldado ni apoyado por Nintendo, Game Freak o The Pokémon Company.Todas las imagenes de las cartas y su información han sido suministradas mediante el uso de TCGDex API",
 
@@ -37,5 +37,7 @@
     "welcome-step2": "Configura el número de simulaciones para obtener una muestra estadística fiable.",
     "welcome-step3": "Analiza el porcentaje de 'Mulligans' y la probabilidad de aparición de cada carta en tu mano inicial.",
     "welcome-startToCalc": "¡Empieza a calcular!",
-    "welcome-goToCalc": "Ir a la calculadora"
+    "welcome-goToCalc": "Ir a la calculadora",
+    "numberOf": "La carta aparece en el ",
+    "numberOf2": " de las manos iniciales."
 }
