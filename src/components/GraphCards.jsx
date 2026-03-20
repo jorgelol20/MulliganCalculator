@@ -65,7 +65,7 @@ const GraphCards = ({ cards, numberOfHands }) => {
   if (data.length === 0) return <p>Cargando datos...</p>;
 
   return (
-    <div style={{ width: '100%', height: '500px', minWidth: '0' }}>
+    <div style={{ width: '100%', height: '550px', minWidth: '0' }}>
       <h1 style={{ textAlign: "center" }}>{t('cardAppears')}</h1>
       <ResponsiveContainer width="100%" height="100%">
         <Treemap
