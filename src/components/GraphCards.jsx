@@ -19,9 +19,10 @@ const CustomizedContent = (props) => {
           strokeWidth: 1,
         }}
       />
-      {width > 15 && height > 5 && (
-        <foreignObject x={x} y={y} width={width * 2} height={height * 2}>
+      {width > 45 && height > 35 && (
+        <foreignObject x={x} y={y} width={width} height={height}>
           <div style={{
+            position: 'relative',
             width: '100%',
             height: '100%',
             display: 'flex',
@@ -36,9 +37,10 @@ const CustomizedContent = (props) => {
             pointerEvents: 'none'
           }}>
             <span style={{
-              fontSize: '12px',
+              position: 'relative',
+              fontSize: '0.7cqw',
               fontWeight: 'bold',
-              lineHeight: '1.1',
+              lineHeight: '1',
               wordBreak: 'break-word'
             }}>
               {name}
