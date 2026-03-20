@@ -19,7 +19,7 @@ const CustomizedContent = (props) => {
           strokeWidth: 1,
         }}
       />
-      {width > 45 && height > 35 && (
+      {width > 15 && height > 5 && (
         <foreignObject x={x} y={y} width={width} height={height}>
           <div style={{
             width: '100%',
