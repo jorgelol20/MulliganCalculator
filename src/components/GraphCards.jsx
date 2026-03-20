@@ -20,7 +20,7 @@ const CustomizedContent = (props) => {
         }}
       />
       {width > 15 && height > 5 && (
-        <foreignObject x={x} y={y} width={width} height={height}>
+        <foreignObject x={x} y={y} width={width * 2} height={height * 2}>
           <div style={{
             width: '100%',
             height: '100%',
