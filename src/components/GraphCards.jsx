@@ -11,7 +11,7 @@ const CustomizedContent = (props) => {
       <rect
         x={x}
         y={y}
-        width={width}
+        width={width}z
         height={height}
         style={{
           fill: `hsl(${(index * (360 / root.children.length))}, 60%, 50%)`,
@@ -65,7 +65,7 @@ const GraphCards = ({ cards, numberOfHands }) => {
   if (data.length === 0) return <p>Cargando datos...</p>;
 
   return (
-    <div style={{ width: '100%', height: '550px', minWidth: '0' }}>
+    <div style={{ width: '100%', height: '600px', minWidth: '0' }}>
       <h1 style={{ textAlign: "center" }}>{t('cardAppears')}</h1>
       <ResponsiveContainer width="100%" height="100%">
         <Treemap
